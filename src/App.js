@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { styled, alpha } from "@mui/material/styles";
 import Countries from "./Countries";
 import {
@@ -73,7 +74,7 @@ const App = () => {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [region, setRegion] = useState("");
-  const [search, setSearch] = useState("play");
+  const [search, setSearch] = useState("");
 
   // Methods & functions
   const fetchCountriesData = async () => {

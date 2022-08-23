@@ -1,5 +1,6 @@
 import React from "react";
 // import { styled, alpha } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 import Country from "./Country";
 import Loading from "./Loading";
 import { Box } from "@mui/material";
@@ -35,14 +36,16 @@ const Countries = ({ countries, loading }) => {
                 md={4}
                 key={index}
               >
-                <Country
-                  key={index}
-                  name={country.name.common}
-                  population={country.population}
-                  region={country.region}
-                  capital={country.capital}
-                  flag={country.flags.png}
-                />
+                <Link to="/details">
+                  <Country
+                    key={index}
+                    name={country.name.common}
+                    population={country.population}
+                    region={country.region}
+                    capital={country.capital}
+                    flag={country.flags.png}
+                  />
+                </Link>
               </Grid>
             ))}
           </Grid>
