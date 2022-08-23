@@ -73,7 +73,7 @@ const App = () => {
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [region, setRegion] = useState("");
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("play");
 
   // Methods & functions
   const fetchCountriesData = async () => {
@@ -115,12 +115,31 @@ const App = () => {
     }
   };
 
+  const fetchNameData = async (countryName) => {
+    try {
+      const res = await fetch(
+        `https://restcountries.com/v3.1/name/${countryName}`
+      );
+      if (res.ok) {
+        const data = await res.json();
+        setCountries(data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleChange = (e) => {
     setRegion(e.target.value);
     const init = async () => {
       await fetchRegionData(e.target.value);
     };
     init();
+  };
+
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+    fetchNameData(e.target.value);
   };
 
   // Effects
@@ -163,6 +182,8 @@ const App = () => {
           <StyledInputBase
             placeholder="Search for a country…"
             inputProps={{ "aria-label": "search" }}
+            value={search}
+            onChange={handleSearch}
           />
         </Search>
         <FormControl sx={{ width: "200px", height: "50px" }}>
