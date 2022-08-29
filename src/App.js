@@ -1,22 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { styled, alpha } from "@mui/material/styles";
-import Countries from "./Countries";
+import Countries from "./components/Countries";
+// import NavBar from "./components/NavBar";
 import {
-  Box,
-  AppBar,
   Stack,
-  Toolbar,
-  Typography,
-  IconButton,
   InputBase,
   InputLabel,
   MenuItem,
   FormControl,
   Select,
-  Alert,
 } from "@mui/material";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 import { ClassNames } from "@emotion/react";
 
@@ -151,25 +144,7 @@ const App = () => {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" mb={2}>
-          <Toolbar sx={{ m: 1 }}>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 1, ml: 2 }}
-            >
-              Where in the world?
-            </Typography>
-            <IconButton>
-              <DarkModeOutlinedIcon />
-            </IconButton>
-            <Typography variant="h6" component="div" sx={{ mr: 2 }}>
-              Dark Mode
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </Box>
+      {/* <NavBar /> */}
       <Stack
         sx={{ mt: 4, mb: 6, pr: 6, pl: 6 }}
         direction={{ xs: "column", sm: "row" }}
