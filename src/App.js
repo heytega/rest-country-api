@@ -65,12 +65,10 @@ const App = () => {
       <Router>
         <NavBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <Home />
           </Route>
-          <Route path="details/:countryName">
-            <Details />
-          </Route>
+          <Route path="/Details/:countryName" children={<Details />}></Route>
         </Switch>
       </Router>
     </ThemeProvider>

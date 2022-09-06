@@ -1,24 +1,31 @@
 import React from "react";
-import { Box, AppBar, Toolbar, Typography, IconButton } from "@mui/material";
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Paper,
+} from "@mui/material";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 
-const NavBar = () => {
+const NavBar = ({ toggleDarkMode, darkMode }) => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" mb={2}>
-        <Toolbar sx={{ m: 1 }}>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1, ml: 2 }}>
-            Where in the world?
-          </Typography>
-          <IconButton>
-            <DarkModeOutlinedIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ mr: 2 }}>
-            Dark Mode
-          </Typography>
-        </Toolbar>
-      </AppBar>
-    </Box>
+    // <Paper sx={{ flexGrow: 1 }}>
+    <AppBar position="static">
+      <Toolbar sx={{ mt: 0.5, mb: 0.5, mr: 6.5, ml: 6.5 }}>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          Where in the world?
+        </Typography>
+        <IconButton>
+          <DarkModeOutlinedIcon onClick={toggleDarkMode} />
+        </IconButton>
+        <Typography variant="h6" component="div" sx={{}}>
+          {darkMode ? "Dark Mode" : "Light Mode"}
+        </Typography>
+      </Toolbar>
+    </AppBar>
+    // {/* </Paper> */}
   );
 };
 

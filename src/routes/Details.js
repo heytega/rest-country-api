@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Box, Typography, Button, Stack } from "@mui/material";
+import { Box, Typography, Button, Stack, Paper } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
@@ -29,7 +29,10 @@ const Details = () => {
   }, [countryName]);
   return (
     <>
-      <Box sx={{ flexGrow: 1, pl: 6, pr: 6 }}>
+      <Paper
+        sx={{ flexGrow: 1, pl: 9, pr: 6, height: "90vh", overflow: "hidden" }}
+        square
+      >
         <Link to="/">
           <Button
             variant="contained"
@@ -39,72 +42,112 @@ const Details = () => {
             Back
           </Button>
         </Link>
-        <Grid container spacing={2} column={12}>
+        <Grid container columnSpacing={{ xs: 14 }} column={12}>
           <Grid
             xs={12}
-            sm={4}
+            sm={5}
             display="flex"
             justifyContent="center"
             alignItems="center"
+            sx={{}}
           >
-            <img src="https://flagcdn.com/w320/gt.png" alt="" />
+            <img
+              src="https://flagcdn.com/w320/gt.png"
+              alt=""
+              sx={{ height: "500px" }}
+            />
           </Grid>
           <Grid
             xs={12}
-            sm={8}
+            sm={6}
             display="flex"
             justifyContent="center"
             alignItems="center"
           >
-            <Stack>
-              <Grid container spacing={2}>
-                <Grid>
-                  <Stack>
-                    <Box>
-                      <Typography variant="h3">Belgium</Typography>
-                    </Box>
-                    <Typography>
-                      Native Name: <span>Test</span>
-                    </Typography>
-
-                    <Typography>
-                      Population: <span>Test</span>
-                    </Typography>
-                    <Typography>
-                      Region: <span>Test</span>
-                    </Typography>
-                    <Typography>
-                      Sub Region: <span>Test</span>
-                    </Typography>
-                    <Typography>
-                      Capital: <span>Test</span>
-                    </Typography>
-                  </Stack>
-                </Grid>
-                <Grid>
-                  <Typography>
-                    Top Level Domain: <span>Test</span>
+            <Stack
+              direction="column"
+              justifyContent="space-between"
+              sx={{ height: "290px", width: "100%" }}
+            >
+              <Box>
+                <Typography variant="h4" sx={{ mb: 2 }}>
+                  Belgium
+                </Typography>
+              </Box>
+              <Stack direction="row" justifyContent="space-between">
+                <Stack direction="column">
+                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    Native Name: <span>Belgie</span>
                   </Typography>
 
-                  <Typography>
-                    Currencies: <span>Test</span>
+                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    Population: <span>11,319,511</span>
+                  </Typography>
+                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    Region: <span>Europe</span>
+                  </Typography>
+                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    Sub Region: <span>Western Europe</span>
+                  </Typography>
+                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    Capital: <span>Brussels</span>
+                  </Typography>
+                </Stack>
+
+                <Stack
+                  direction="column"
+                  alignContent="center"
+                  // justifyContent="center"
+                >
+                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    Top Level Domain: <span>.be</span>
                   </Typography>
 
-                  <Typography>
-                    Language: <span>Test</span>
+                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    Currencies: <span>Euro</span>
                   </Typography>
-                </Grid>
-              </Grid>
-              <Stack>
-                <Typography>Border Countries</Typography>
-                <Button variant="contained">Test</Button>
-                <Button variant="contained">Test</Button>
-                <Button variant="contained">Test</Button>
+
+                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    Language: <span>Dutch, French, German</span>
+                  </Typography>
+                </Stack>
+              </Stack>
+              <Stack
+                spacing={2}
+                direction="row"
+                justifyContent="space-between"
+                alignItems="center"
+                sx={{ mt: 2.5 }}
+              >
+                <Typography
+                  variant="subtitle1"
+                  sx={{ mb: 1 }}
+                  alignItems="center"
+                >
+                  Border Countries
+                </Typography>
+                <Stack
+                  direction="row"
+                  alignItems="center"
+                  justifyContent="flex-start"
+                  justifySelf="flex-start"
+                  sx={{ width: "60%" }}
+                >
+                  <Button variant="contained" sx={{ mr: 2 }}>
+                    France
+                  </Button>
+                  <Button variant="contained" sx={{ mr: 2 }}>
+                    Germany
+                  </Button>
+                  <Button variant="contained" sx={{ mr: 2 }}>
+                    Netherland
+                  </Button>
+                </Stack>
               </Stack>
             </Stack>
           </Grid>
         </Grid>
-      </Box>
+      </Paper>
     </>
   );
 };

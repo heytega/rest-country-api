@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap');
 
 * {
     padding: 0;
@@ -15,8 +15,12 @@ a {
     text-decoration: none;
 }
 
+span{
+    font-weight: 300;
+}
+
 body {
-    font-family: 'Nunsito Sans', sans-serif;
+    /* font-family: 'Nunsito Sans', sans-serif; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
