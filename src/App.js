@@ -1,190 +1,80 @@
 import React, { useState, useEffect } from "react";
-import { styled, alpha } from "@mui/material/styles";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Box, Paper } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Countries from "./components/Countries";
-// import NavBar from "./components/NavBar";
-import {
-  Stack,
-  InputBase,
-  InputLabel,
-  MenuItem,
-  FormControl,
-  Select,
-} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
+import NavBar from "./components/NavBar";
+import Home from "./components/Home";
+import Details from "./routes/Details";
+
 import { ClassNames } from "@emotion/react";
-
-const allUrl = "https://restcountries.com/v3.1/all";
-const regionUrl = "https://restcountries.com/v3.1/region/";
-
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+const darkmode = createTheme({
+  palette: {
+    mode: "dark",
   },
-  boxShadow: theme.shadows[2],
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "100%",
-  height: "50px",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(0),
-    width: "40%",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2, 0, 3),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(2, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(6)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    height: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-    [theme.breakpoints.up("md")]: {
-      width: "50ch",
+  typography: {
+    fontFamily: "Nunito Sans",
+    fontWeightMedium: 600,
+    fontWeightBold: 800,
+    h4: {
+      fontFamily: "Nunito Sans",
+      fontWeight: 800,
+    },
+    h6: {
+      fontFamily: "Nunito Sans",
+      fontWeight: 700,
+    },
+    subtitle1: {
+      fontWeight: 600,
+      fontSize: "1.1rem",
     },
   },
-}));
+});
+
+const lightmode = createTheme({
+  palette: {
+    mode: "light",
+  },
+  typography: {
+    fontFamily: "Nunito Sans",
+    fontWeightMedium: 600,
+    fontWeightBold: 800,
+    h4: {
+      fontFamily: "Nunito Sans",
+      fontWeight: 800,
+    },
+    h6: {
+      fontFamily: "Nunito Sans",
+      fontWeight: 700,
+    },
+    subtitle1: {
+      fontWeight: 600,
+      fontSize: "1.1rem",
+    },
+  },
+});
 
 const App = () => {
-  // Data initializations
-
-  const [countries, setCountries] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [region, setRegion] = useState("");
-  const [search, setSearch] = useState("");
-
-  // Methods & functions
-  const fetchCountriesData = async () => {
-    try {
-      const res = await fetch(allUrl);
-      if (res.ok) {
-        const data = await res.json();
-
-        setCountries(data);
-        console.log(countries);
-      }
-    } catch (error) {
-      alert("Error Encountered");
-    }
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
   };
-
-  const fetchRegionData = async (regionName) => {
-    try {
-      const res = await fetch(
-        `https://restcountries.com/v3.1/region/${regionName}`
-      );
-      if (res.ok) {
-        const data = await res.json();
-        setCountries(data);
-      }
-    } catch (error) {
-      alert("error while fetching region");
-    }
-    if (regionName === "all") {
-      try {
-        const res = await fetch(allUrl);
-        if (res.ok) {
-          const info = await res.json();
-          setCountries(info);
-        }
-      } catch (error) {
-        alert("error while fetching all region");
-      }
-    }
-  };
-
-  const fetchNameData = async (countryName) => {
-    try {
-      const res = await fetch(
-        `https://restcountries.com/v3.1/name/${countryName}`
-      );
-      if (res.ok) {
-        const data = await res.json();
-        setCountries(data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleChange = (e) => {
-    setRegion(e.target.value);
-    const init = async () => {
-      await fetchRegionData(e.target.value);
-    };
-    init();
-  };
-
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-    fetchNameData(e.target.value);
-  };
-
-  // Effects
-  useEffect(() => {
-    fetchCountriesData();
-    setLoading(false);
-  }, []);
-
   return (
-    <>
-      {/* <NavBar /> */}
-      <Stack
-        sx={{ mt: 4, mb: 6, pr: 6, pl: 6 }}
-        direction={{ xs: "column", sm: "row" }}
-        spacing={6}
-        justifyContent="space-between"
-      >
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search for a country…"
-            inputProps={{ "aria-label": "search" }}
-            value={search}
-            onChange={handleSearch}
-          />
-        </Search>
-        <FormControl sx={{ width: "200px", height: "50px" }}>
-          <InputLabel id="demo-simple-select-label">
-            Filter by Region
-          </InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={region}
-            label="Filter by Region"
-            // onChange={(e) => setRegion(e.target.value)}
-            onChange={handleChange}
-          >
-            <MenuItem value={"all"}>All</MenuItem>
-            <MenuItem value={"africa"}>Africa</MenuItem>
-            <MenuItem value={"america"}>America</MenuItem>
-            <MenuItem value={"asia"}>Asia</MenuItem>
-            <MenuItem value={"europe"}>Europe</MenuItem>
-            <MenuItem value={"oceania"}>Oceania</MenuItem>
-          </Select>
-        </FormControl>
-      </Stack>
-      <Countries countries={countries} loading={loading} />
-    </>
+    // <Paper>
+    <ThemeProvider theme={darkMode ? darkmode : lightmode}>
+      <Router>
+        <NavBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+          <Route path="details/:countryName">
+            <Details />
+          </Route>
+        </Switch>
+      </Router>
+    </ThemeProvider>
+    /* </Paper> */
   );
 };
 
