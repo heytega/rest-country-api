@@ -28,11 +28,12 @@ const Details = () => {
             flags,
             currencies,
             languages,
+            borders,
           },
         ] = data;
         const newSingleCountry = {
-          name: name.common,
-          // nativeName: name.nativeName[1][2],
+          name: name.official,
+          nativeName: name.common,
           population,
           flag: flags.svg,
           region,
@@ -41,6 +42,7 @@ const Details = () => {
           tld: tld[0],
           currencies,
           languages,
+          borders,
         };
         setSingleCountry(newSingleCountry);
       }
@@ -55,7 +57,7 @@ const Details = () => {
 
   const {
     name,
-    // nativeName,
+    nativeName,
     population,
     flag,
     region,
@@ -64,6 +66,7 @@ const Details = () => {
     capital,
     tld,
     currencies,
+    borders,
   } = singleCountry;
 
   return (
@@ -118,7 +121,7 @@ const Details = () => {
               <Stack direction="row" justifyContent="space-between">
                 <Stack direction="column">
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Native Name: <span>nativeName</span>
+                    Native Name: <span>{nativeName}</span>
                   </Typography>
 
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
@@ -174,14 +177,14 @@ const Details = () => {
                   justifySelf="flex-start"
                   sx={{ width: "60%" }}
                 >
-                  {/* {languages.map((language, index) => {
+                  {borders.map((language, index) => {
                     return (
                       <Button key={index} variant="contained" sx={{ mr: 2 }}>
                         {language}
                       </Button>
                     );
-                  })} */}
-                  <Button variant="contained" sx={{ mr: 2 }}>
+                  })}
+                  {/* <Button variant="contained" sx={{ mr: 2 }}>
                     France
                   </Button>
                   <Button variant="contained" sx={{ mr: 2 }}>
@@ -189,7 +192,7 @@ const Details = () => {
                   </Button>
                   <Button variant="contained" sx={{ mr: 2 }}>
                     Netherland
-                  </Button>
+                  </Button> */}
                 </Stack>
               </Stack>
             </Stack>
