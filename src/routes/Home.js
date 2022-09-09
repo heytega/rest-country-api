@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Countries from "./Countries";
+import Countries from "../components/Countries";
 import {
   Stack,
   InputBase,

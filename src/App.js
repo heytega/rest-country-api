@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Box, Paper } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Countries from "./components/Countries";
 import NavBar from "./components/NavBar";
-import Home from "./components/Home";
+import Home from "./routes/Home";
 import Details from "./routes/Details";
 
 import { ClassNames } from "@emotion/react";
@@ -62,15 +62,13 @@ const App = () => {
   return (
     // <Paper>
     <ThemeProvider theme={darkMode ? darkmode : lightmode}>
-      <Router>
+      <BrowserRouter>
         <NavBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/Details/:countryName" children={<Details />}></Route>
-        </Switch>
-      </Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/Details/:countryName" element={<Details />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
     /* </Paper> */
   );

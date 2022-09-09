@@ -16,8 +16,33 @@ const Details = () => {
       );
       if (res.ok) {
         const data = await res.json();
-        setSingleCountry(data);
-        console.log(singleCountry);
+        console.log(data);
+        const [
+          {
+            name,
+            population,
+            region,
+            subregion,
+            capital,
+            tld,
+            flags,
+            currencies,
+            languages,
+          },
+        ] = data;
+        const newSingleCountry = {
+          name: name.common,
+          // nativeName: name.nativeName[1][2],
+          population,
+          flag: flags.svg,
+          region,
+          subregion,
+          capital,
+          tld: tld[0],
+          currencies,
+          languages,
+        };
+        setSingleCountry(newSingleCountry);
       }
     } catch (error) {
       console.log(error);
@@ -27,10 +52,30 @@ const Details = () => {
   useEffect(() => {
     fetchSingleCountry(countryName);
   }, [countryName]);
+
+  const {
+    name,
+    // nativeName,
+    population,
+    flag,
+    region,
+    subregion,
+    languages,
+    capital,
+    tld,
+    currencies,
+  } = singleCountry;
+
   return (
     <>
       <Paper
-        sx={{ flexGrow: 1, pl: 9, pr: 6, height: "90vh", overflow: "hidden" }}
+        sx={{
+          flexGrow: 1,
+          pl: 9,
+          pr: 6,
+          height: "90vh",
+          overflow: "hidden",
+        }}
         square
       >
         <Link to="/">
@@ -51,11 +96,7 @@ const Details = () => {
             alignItems="center"
             sx={{}}
           >
-            <img
-              src="https://flagcdn.com/w320/gt.png"
-              alt=""
-              sx={{ height: "500px" }}
-            />
+            <img src={flag} alt="country's flag" sx={{ height: "500px" }} />
           </Grid>
           <Grid
             xs={12}
@@ -71,26 +112,26 @@ const Details = () => {
             >
               <Box>
                 <Typography variant="h4" sx={{ mb: 2 }}>
-                  Belgium
+                  {name}
                 </Typography>
               </Box>
               <Stack direction="row" justifyContent="space-between">
                 <Stack direction="column">
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Native Name: <span>Belgie</span>
+                    Native Name: <span>nativeName</span>
                   </Typography>
 
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Population: <span>11,319,511</span>
+                    Population: <span>{population}</span>
                   </Typography>
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Region: <span>Europe</span>
+                    Region: <span>{region}</span>
                   </Typography>
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Sub Region: <span>Western Europe</span>
+                    Sub Region: <span>{subregion}</span>
                   </Typography>
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Capital: <span>Brussels</span>
+                    Capital: <span>{capital}</span>
                   </Typography>
                 </Stack>
 
@@ -100,7 +141,7 @@ const Details = () => {
                   // justifyContent="center"
                 >
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Top Level Domain: <span>.be</span>
+                    Top Level Domain: <span>{tld}</span>
                   </Typography>
 
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
@@ -133,6 +174,13 @@ const Details = () => {
                   justifySelf="flex-start"
                   sx={{ width: "60%" }}
                 >
+                  {/* {languages.map((language, index) => {
+                    return (
+                      <Button key={index} variant="contained" sx={{ mr: 2 }}>
+                        {language}
+                      </Button>
+                    );
+                  })} */}
                   <Button variant="contained" sx={{ mr: 2 }}>
                     France
                   </Button>
