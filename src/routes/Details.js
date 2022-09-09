@@ -177,10 +177,10 @@ const Details = () => {
                   justifySelf="flex-start"
                   sx={{ width: "60%" }}
                 >
-                  {borders.map((language, index) => {
+                  {borders.map((country, index) => {
                     return (
                       <Button key={index} variant="contained" sx={{ mr: 2 }}>
-                        {language}
+                        {country}
                       </Button>
                     );
                   })}
