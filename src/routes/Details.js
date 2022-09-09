@@ -177,14 +177,14 @@ const Details = () => {
                   justifySelf="flex-start"
                   sx={{ width: "60%" }}
                 >
-                  {borders.map((country, index) => {
+                  {/* {borders.map((country, index) => {
                     return (
                       <Button key={index} variant="contained" sx={{ mr: 2 }}>
                         {country}
                       </Button>
                     );
-                  })}
-                  {/* <Button variant="contained" sx={{ mr: 2 }}>
+                  })} */}
+                  <Button variant="contained" sx={{ mr: 2 }}>
                     France
                   </Button>
                   <Button variant="contained" sx={{ mr: 2 }}>
@@ -192,7 +192,7 @@ const Details = () => {
                   </Button>
                   <Button variant="contained" sx={{ mr: 2 }}>
                     Netherland
-                  </Button> */}
+                  </Button>
                 </Stack>
               </Stack>
             </Stack>

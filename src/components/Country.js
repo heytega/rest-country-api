@@ -12,11 +12,11 @@ const Country = ({ name, population, region, capital, flag }) => {
       >
         <img src={flag} width="250" height="150" alt="country's flag" />
       </Box>
-      <Stack sx={{ mt: 2 }}>
+      <Stack sx={{ mt: 2, pl: 2 }}>
         <Typography variant="h6">
           <span>{name}</span>
         </Typography>
-        <Typography variant="h8">
+        <Typography>
           Population: <span>{population}</span>
         </Typography>
         <Typography>
