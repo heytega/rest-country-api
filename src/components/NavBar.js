@@ -17,12 +17,12 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           Where in the world?
         </Typography>
-        <IconButton>
-          <DarkModeOutlinedIcon onClick={toggleDarkMode} />
+        <IconButton onClick={toggleDarkMode}>
+          <DarkModeOutlinedIcon />
+          <Typography variant="h6" component="div" sx={{}}>
+            {darkMode ? "Dark Mode" : "Light Mode"}
+          </Typography>
         </IconButton>
-        <Typography variant="h6" component="div" sx={{}}>
-          {darkMode ? "Dark Mode" : "Light Mode"}
-        </Typography>
       </Toolbar>
     </AppBar>
     // {/* </Paper> */}
