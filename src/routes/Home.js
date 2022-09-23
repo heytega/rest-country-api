@@ -78,10 +78,10 @@ const Home = ({}) => {
         const data = await res.json();
 
         setCountries(data);
-        console.log(countries);
+        
       }
     } catch (error) {
-      alert("Error Encountered");
+      // alert("Error Encountered");
     }
   };
 
@@ -95,7 +95,7 @@ const Home = ({}) => {
         setCountries(data);
       }
     } catch (error) {
-      alert("error while fetching region");
+      // alert("error while fetching region");
     }
     if (regionName === "all") {
       try {
@@ -105,7 +105,7 @@ const Home = ({}) => {
           setCountries(info);
         }
       } catch (error) {
-        alert("error while fetching all region");
+        // alert("error while fetching all region");
       }
     }
   };
@@ -120,7 +120,7 @@ const Home = ({}) => {
         setCountries(data);
       }
     } catch (error) {
-      console.log(error);
+     throw error
     }
   };
 
@@ -136,6 +136,10 @@ const Home = ({}) => {
     setSearch(e.target.value);
     fetchNameData(e.target.value);
   };
+
+  // const array = [{ one: 2, two: 6 }];
+  // const [{ one, two, three }] = array;
+  // console.log(one, two, three);
 
   // Effects
   useEffect(() => {
