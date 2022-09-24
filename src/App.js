@@ -8,6 +8,7 @@ import Home from "./routes/Home";
 import Details from "./routes/Details";
 
 import { ClassNames } from "@emotion/react";
+import { dark } from "@mui/material/styles/createPalette";
 const darkmode = createTheme({
   palette: {
     mode: "dark",
@@ -34,6 +35,26 @@ const darkmode = createTheme({
 const lightmode = createTheme({
   palette: {
     mode: "light",
+    common: {
+      LightGray: "#FAFAFA",
+      DarkGray: "#858585",
+      DarkBlueT: "#111517",
+    },
+    primary: {
+      main: "#fff",
+      light: "rgb(255, 255, 255)",
+      dark: "rgb(178, 178, 178)",
+      contrastText: "DarkBlueT",
+    },
+    // info: {
+    //   contrastText: "DarkBlueT",
+    // },
+    // secondary: {
+    //   contrastText: "DarkBlueT",
+    // },
+    // success: {
+    //   contrastText: "DarkBlueT",
+    // },
   },
   typography: {
     fontFamily: "Nunito Sans",
@@ -51,6 +72,10 @@ const lightmode = createTheme({
       fontWeight: 600,
       fontSize: "1.1rem",
     },
+  },
+  subtitle1: {
+    fontWeight: 600,
+    fontSize: "1.1rem",
   },
 });
 

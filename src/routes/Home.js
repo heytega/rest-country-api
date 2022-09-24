@@ -20,10 +20,10 @@ const regionUrl = "https://restcountries.com/v3.1/region/";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
+  backgroundColor: theme.palette.primary.main,
+  // "&:hover": {
+  //   backgroundColor: alpha(theme.palette.primary.main, 0.008),
+  // },
   boxShadow: theme.shadows[2],
   marginRight: theme.spacing(2),
   marginLeft: 0,
@@ -76,9 +76,7 @@ const Home = ({}) => {
       const res = await fetch(allUrl);
       if (res.ok) {
         const data = await res.json();
-
         setCountries(data);
-        console.log(countries);
       }
     } catch (error) {
       alert("Error Encountered");
@@ -144,7 +142,11 @@ const Home = ({}) => {
   }, []);
 
   return (
-    <Paper sx={{ height: "90vh" }} square elevation={0}>
+    <Paper
+      sx={{ height: "90vh", backgroundColor: "LightGray" }}
+      square
+      elevation={0}
+    >
       <Stack
         sx={{ pt: 4, mb: 6, pr: 6, pl: 6 }}
         direction={{ xs: "column", sm: "row" }}
@@ -162,19 +164,28 @@ const Home = ({}) => {
             onChange={handleSearch}
           />
         </Search>
-        <FormControl sx={{ width: "200px", height: "50px", border: "none" }}>
+
+        <FormControl
+          sx={{
+            width: "200px",
+            height: "50px",
+            border: "none",
+            // backgroundColor: "white",
+          }}
+        >
           <Paper sx={{ height: "100%" }}>
             <InputLabel id="demo-simple-select-label">
               Filter by Region
             </InputLabel>
           </Paper>
+
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={region}
             label="Filter by Region"
-            // onChange={(e) => setRegion(e.target.value)}
             onChange={handleChange}
+            sx={{ backgroundColor: "white" }}
           >
             <MenuItem value={"all"}>All</MenuItem>
             <MenuItem value={"africa"}>Africa</MenuItem>

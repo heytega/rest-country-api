@@ -14,12 +14,13 @@ const Details = () => {
       const res = await fetch(
         `https://restcountries.com/v3.1/name/${countryName}`
       );
+      console.log(res);
       if (res.ok) {
         const data = await res.json();
         console.log(data);
         const [
           {
-            name,
+            name: { common, nativeName, official },
             population,
             region,
             subregion,
@@ -31,9 +32,12 @@ const Details = () => {
             borders,
           },
         ] = data;
+
+        // const money = [currencies[]];
+
         const newSingleCountry = {
-          name: name.official,
-          nativeName: name.common,
+          name: official,
+          nativeName: common,
           population,
           flag: flags.svg,
           region,
@@ -55,19 +59,19 @@ const Details = () => {
     fetchSingleCountry(countryName);
   }, [countryName]);
 
-  const {
-    name,
-    nativeName,
-    population,
-    flag,
-    region,
-    subregion,
-    languages,
-    capital,
-    tld,
-    currencies,
-    borders,
-  } = singleCountry;
+  // const {
+  //   name,
+  //   nativeName,
+  //   population,
+  //   flag,
+  //   region,
+  //   subregion,
+  //   languages,
+  //   capital,
+  //   tld,
+  //   currencies,
+  //   borders,
+  // } = singleCountry;
 
   return (
     <>
@@ -99,7 +103,11 @@ const Details = () => {
             alignItems="center"
             sx={{}}
           >
-            <img src={flag} alt="country's flag" sx={{ height: "500px" }} />
+            <img
+              src={singleCountry.flag}
+              alt="country's flag"
+              sx={{ height: "500px" }}
+            />
           </Grid>
           <Grid
             xs={12}
@@ -115,26 +123,27 @@ const Details = () => {
             >
               <Box>
                 <Typography variant="h4" sx={{ mb: 2 }}>
-                  {name}
+                  {/* {name} */}
+                  {singleCountry.name}
                 </Typography>
               </Box>
               <Stack direction="row" justifyContent="space-between">
                 <Stack direction="column">
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Native Name: <span>{nativeName}</span>
+                    Native Name: <span>{singleCountry.nativeName}</span>
                   </Typography>
 
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Population: <span>{population}</span>
+                    Population: <span>{singleCountry.population}</span>
                   </Typography>
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Region: <span>{region}</span>
+                    Region: <span>{singleCountry.region}</span>
                   </Typography>
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Sub Region: <span>{subregion}</span>
+                    Sub Region: <span>{singleCountry.subregion}</span>
                   </Typography>
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Capital: <span>{capital}</span>
+                    Capital: <span>{singleCountry.capital}</span>
                   </Typography>
                 </Stack>
 
@@ -144,7 +153,7 @@ const Details = () => {
                   // justifyContent="center"
                 >
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Top Level Domain: <span>{tld}</span>
+                    Top Level Domain: <span>{singleCountry.tld}</span>
                   </Typography>
 
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
@@ -177,7 +186,7 @@ const Details = () => {
                   justifySelf="flex-start"
                   sx={{ width: "60%" }}
                 >
-                  {/* {borders.map((country, index) => {
+                  {/* {singleCountry.borders.filter((country, index) => {
                     return (
                       <Button key={index} variant="contained" sx={{ mr: 2 }}>
                         {country}
