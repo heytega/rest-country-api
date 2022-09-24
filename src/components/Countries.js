@@ -12,13 +12,11 @@ const Countries = ({ countries, loading }) => {
   } else {
     return (
       <>
-        <Paper sx={{ flexGrow: 1, mt: 6 }} elevation={0}>
-          <Grid
-            container
-            rowSpacing={{ xs: 3, md: 3 }}
-            columnSpacing={{ md: 0 }}
-            columns={12}
-          >
+        <Paper
+          sx={{ flexGrow: 1, mt: 6, backgroundColor: "LightGray" }}
+          elevation={0}
+        >
+          <Grid container rowSpacing={{ xs: 5 }} columns={12}>
             {/* xs, extra-small: 0px
               sm, small: 600px
               md, medium: 900px
@@ -31,7 +29,8 @@ const Countries = ({ countries, loading }) => {
                 alignItems="center"
                 xs={12}
                 sm={6}
-                md={3}
+                md={4}
+                lg={3}
                 key={index}
               >
                 <Link to={`details/${country.name.common}`}>
