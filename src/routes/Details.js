@@ -5,18 +5,19 @@ import Grid from "@mui/material/Unstable_Grid2";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 const Details = () => {
-  const [singleCountry, setSingleCountry] = useState();
+  const [singleCountry, setSingleCountry] = useState([]);
 
   const { countryName } = useParams();
 
-  const fetchSingleCountry = async () => {
+  const fetchSingleCountry = async (countryName) => {
     try {
       const res = await fetch(
         `https://restcountries.com/v3.1/name/${countryName}`
       );
       if (res.ok) {
         const data = await res.json();
-     const   [https://github.com/heytega/rest-country-api/
+        console.log(data);
+        const [
           {
             name,
             population,
@@ -30,8 +31,6 @@ const Details = () => {
             borders,
           },
         ] = data;
-
-
         const newSingleCountry = {
           name: name.official,
           nativeName: name.common,
@@ -45,32 +44,31 @@ const Details = () => {
           languages,
           borders,
         };
-        setSingleCountry(newSingleCountry)
-        // console.log(newSingleCountry);
-       
+        setSingleCountry(newSingleCountry);
       }
     } catch (error) {
-      // console.log(error);
+      console.log(error);
     }
   };
 
   useEffect(() => {
-    fetchSingleCountry();
-  }, []);
+    fetchSingleCountry(countryName);
+  }, [countryName]);
 
-  // const {
-  //   name,
-  //   nativeName,
-  //   population,
-  //   flag,
-  //   region,
-  //   subregion,
-  //   languages,
-  //   capital,
-  //   tld,
-  //   currencies,
-  //   borders,
-  // } = singleCountry;
+  const {
+    name,
+    nativeName,
+    population,
+    flag,
+    region,
+    subregion,
+    languages,
+    capital,
+    tld,
+    currencies,
+    borders,
+  } = singleCountry;
+
   return (
     <>
       <Paper
@@ -101,11 +99,7 @@ const Details = () => {
             alignItems="center"
             sx={{}}
           >
-            <img
-              src={singleCountry.flag}
-              alt="country's flag"
-              sx={{ height: "500px" }}
-            />
+            <img src={flag} alt="country's flag" sx={{ height: "500px" }} />
           </Grid>
           <Grid
             xs={12}
@@ -121,28 +115,26 @@ const Details = () => {
             >
               <Box>
                 <Typography variant="h4" sx={{ mb: 2 }}>
-                  {singleCountry.name}
+                  {name}
                 </Typography>
               </Box>
               <Stack direction="row" justifyContent="space-between">
                 <Stack direction="column">
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Native Name: <span>{singleCountry.nativeName}</span>
+                    Native Name: <span>{nativeName}</span>
                   </Typography>
 
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Population: <span>{singleCountry.population}</span>
+                    Population: <span>{population}</span>
                   </Typography>
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Region:
-                    <span>{singleCountry.region}</span>
+                    Region: <span>{region}</span>
                   </Typography>
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Sub Region:
-                    <span>{singleCountry.subregion}</span>
+                    Sub Region: <span>{subregion}</span>
                   </Typography>
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Capital: <span>{singleCountry.capital}</span>
+                    Capital: <span>{capital}</span>
                   </Typography>
                 </Stack>
 
@@ -152,7 +144,7 @@ const Details = () => {
                   // justifyContent="center"
                 >
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Top Level Domain: <span>{singleCountry.tld}</span>
+                    Top Level Domain: <span>{tld}</span>
                   </Typography>
 
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
