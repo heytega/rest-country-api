@@ -19,6 +19,11 @@ const Countries = ({ countries, loading }) => {
             columnSpacing={{ md: 0 }}
             columns={12}
           >
+            {/* xs, extra-small: 0px
+              sm, small: 600px
+              md, medium: 900px
+              lg, large: 1200px
+              xl, extra-large: 1536px */}
             {countries.map((country, index) => (
               <Grid
                 display="flex"
