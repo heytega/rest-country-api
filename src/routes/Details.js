@@ -5,50 +5,103 @@ import Grid from "@mui/material/Unstable_Grid2";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 const Details = () => {
-  const [singleCountry, setSingleCountry] = useState([]);
+  const [singleCountry, setSingleCountry] = useState({});
+  const [borderCountries, setBorderCountries] = useState([]);
 
   const { countryName } = useParams();
 
   const fetchSingleCountry = async (countryName) => {
     try {
-      const res = await fetch(
-        `https://restcountries.com/v3.1/name/${countryName}`
-      );
-      console.log(res);
-      if (res.ok) {
-        const data = await res.json();
-        console.log(data);
-        const [
-          {
-            name: { common, nativeName, official },
+      if (countryName.length <= 3) {
+        const res = await fetch(
+          `https://restcountries.com/v3.1/alpha/${countryName}`
+        );
+
+        if (res.ok) {
+          const data = await res.json();
+          console.log(data);
+          const [
+            {
+              name: { common, nativeName, official },
+              population,
+              region,
+              subregion,
+              capital,
+              tld,
+              flags,
+              currencies,
+              languages,
+              borders,
+            },
+          ] = data;
+
+          const key = currencies[Object.keys(currencies)[0]].name;
+
+          const newSingleCountry = {
+            name: official,
+            nativeName: common,
             population,
+            flag: flags.png,
             region,
             subregion,
             capital,
-            tld,
-            flags,
-            currencies,
-            languages,
+            tld: tld ? tld[0] : [],
+            currencies: currencies ? key : "",
+            languages: languages ? Object.values(languages).join(", ") : [],
             borders,
-          },
-        ] = data;
+          };
 
-        // const money = [currencies[]];
+          const newBorders = borders ? [...borders] : [];
 
-        const newSingleCountry = {
-          name: official,
-          nativeName: common,
-          population,
-          flag: flags.svg,
-          region,
-          subregion,
-          capital,
-          tld: tld[0],
-          currencies,
-          languages,
-          borders,
-        };
-        setSingleCountry(newSingleCountry);
+          console.log(key);
+
+          setBorderCountries(newBorders);
+          setSingleCountry(newSingleCountry);
+        }
+      } else {
+        const res = await fetch(
+          `https://restcountries.com/v3.1/name/${countryName}`
+        );
+        console.log(res);
+        if (res.ok) {
+          const data = await res.json();
+          const [
+            {
+              name: { common, nativeName, official },
+              population,
+              region,
+              subregion,
+              capital,
+              tld,
+              flags,
+              currencies,
+              languages,
+              borders,
+            },
+          ] = data;
+          const key = currencies[Object.keys(currencies)[0]].name;
+
+          const newSingleCountry = {
+            name: official,
+            nativeName: common,
+            population,
+            flag: flags.png,
+            region,
+            subregion,
+            capital,
+            tld: tld ? tld[0] : [],
+            currencies: currencies ? key : "",
+            languages: languages ? Object.values(languages).join(", ") : [],
+            borders,
+          };
+
+          const newBorders = borders ? [...borders] : [];
+
+          console.log(key);
+
+          setBorderCountries(newBorders);
+          setSingleCountry(newSingleCountry);
+        }
       }
     } catch (error) {
       console.log(error);
@@ -58,20 +111,6 @@ const Details = () => {
   useEffect(() => {
     fetchSingleCountry(countryName);
   }, [countryName]);
-
-  // const {
-  //   name,
-  //   nativeName,
-  //   population,
-  //   flag,
-  //   region,
-  //   subregion,
-  //   languages,
-  //   capital,
-  //   tld,
-  //   currencies,
-  //   borders,
-  // } = singleCountry;
 
   return (
     <>
@@ -123,7 +162,6 @@ const Details = () => {
             >
               <Box>
                 <Typography variant="h4" sx={{ mb: 2 }}>
-                  {/* {name} */}
                   {singleCountry.name}
                 </Typography>
               </Box>
@@ -147,61 +185,52 @@ const Details = () => {
                   </Typography>
                 </Stack>
 
-                <Stack
-                  direction="column"
-                  alignContent="center"
-                  // justifyContent="center"
-                >
+                <Stack direction="column" alignContent="center">
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
                     Top Level Domain: <span>{singleCountry.tld}</span>
                   </Typography>
 
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Currencies: <span>Euro</span>
+                    Currencies: <span>{singleCountry.currencies}</span>
                   </Typography>
 
-                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Language: <span>Dutch, French, German</span>
-                  </Typography>
+                  <Stack
+                    spacing={1}
+                    sx={{ mb: 1 }}
+                    direction="row"
+                    justifyContent="flex-start"
+                  >
+                    <Typography variant="subtitle1">Languages:</Typography>
+                    <Typography variant="subtitle1">
+                      <span>{singleCountry.languages}</span>
+                    </Typography>
+                  </Stack>
                 </Stack>
               </Stack>
               <Stack
                 spacing={2}
                 direction="row"
-                justifyContent="space-between"
+                justifyContent="flex-start"
                 alignItems="center"
-                sx={{ mt: 2.5 }}
+                sx={{ mt: 2 }}
               >
                 <Typography
                   variant="subtitle1"
-                  sx={{ mb: 1 }}
+                  // sx={{ mb: 1 }}
                   alignItems="center"
                 >
-                  Border Countries
+                  Border Countries:
                 </Typography>
-                <Stack
-                  direction="row"
-                  alignItems="center"
-                  justifyContent="flex-start"
-                  justifySelf="flex-start"
-                  sx={{ width: "60%" }}
-                >
-                  {/* {singleCountry.borders.filter((country, index) => {
+                <Stack direction="row" justifyContent="flex-start">
+                  {borderCountries.map((country, index) => {
                     return (
-                      <Button key={index} variant="contained" sx={{ mr: 2 }}>
-                        {country}
-                      </Button>
+                      <Link to={`/Details/${country}`}>
+                        <Button key={index} variant="contained" sx={{ mr: 2 }}>
+                          {country}
+                        </Button>
+                      </Link>
                     );
-                  })} */}
-                  <Button variant="contained" sx={{ mr: 2 }}>
-                    France
-                  </Button>
-                  <Button variant="contained" sx={{ mr: 2 }}>
-                    Germany
-                  </Button>
-                  <Button variant="contained" sx={{ mr: 2 }}>
-                    Netherland
-                  </Button>
+                  })}
                 </Stack>
               </Stack>
             </Stack>
