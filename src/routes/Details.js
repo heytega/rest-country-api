@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Box, Typography, Button, Stack, Paper } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  Stack,
+  Paper,
+  Container,
+} from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
@@ -114,7 +121,7 @@ const Details = () => {
 
   return (
     <>
-      <Paper
+      {/* <Paper
         sx={{
           flexGrow: 1,
           pl: 9,
@@ -123,7 +130,8 @@ const Details = () => {
           overflow: "hidden",
         }}
         square
-      >
+      > */}
+      <Container maxWidth="xl">
         <Link to="/">
           <Button
             variant="contained"
@@ -236,7 +244,8 @@ const Details = () => {
             </Stack>
           </Grid>
         </Grid>
-      </Paper>
+      </Container>
+      {/* </Paper> */}
     </>
   );
 };
