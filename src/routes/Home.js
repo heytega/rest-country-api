@@ -8,6 +8,7 @@ import {
   FormControl,
   Select,
   Paper,
+  Container,
 } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
@@ -142,13 +143,9 @@ const Home = ({}) => {
   }, []);
 
   return (
-    <Paper
-      sx={{ height: "90vh", backgroundColor: "LightGray" }}
-      square
-      elevation={0}
-    >
+    <Container maxWidth="xl">
       <Stack
-        sx={{ pt: 4, mb: 6, pr: 6, pl: 6 }}
+        sx={{ pt: 4, mb: 6 }}
         direction={{ xs: "column", sm: "row" }}
         spacing={6}
         justifyContent="space-between"
@@ -197,7 +194,7 @@ const Home = ({}) => {
         </FormControl>
       </Stack>
       <Countries countries={countries} loading={loading} />
-    </Paper>
+    </Container>
   );
 };
 
