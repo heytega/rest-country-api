@@ -46,16 +46,8 @@ const lightmode = createTheme({
       dark: "rgb(178, 178, 178)",
       contrastText: "DarkBlueT",
     },
-    // info: {
-    //   contrastText: "DarkBlueT",
-    // },
-    // secondary: {
-    //   contrastText: "DarkBlueT",
-    // },
-    // success: {
-    //   contrastText: "DarkBlueT",
-    // },
   },
+
   typography: {
     fontFamily: "Nunito Sans",
     fontWeightMedium: 600,
