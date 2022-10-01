@@ -121,16 +121,6 @@ const Details = () => {
 
   return (
     <>
-      {/* <Paper
-        sx={{
-          flexGrow: 1,
-          pl: 9,
-          pr: 6,
-          height: "90vh",
-          overflow: "hidden",
-        }}
-        square
-      > */}
       <Container maxWidth="xl">
         <Link to="/">
           <Button
@@ -141,14 +131,30 @@ const Details = () => {
             Back
           </Button>
         </Link>
-        <Grid container columnSpacing={{ xs: 14 }} column={12}>
+
+        {/* xs, extra-small: 0px
+              sm, small: 600px
+              md, medium: 900px
+              lg, large: 1200px
+              xl, extra-large: 1400px
+              xxl, extra-extra-large: 1536px */}
+
+        <Grid
+          container
+          columnSpacing={{ xs: 14 }}
+          column={12}
+          disableEqualOverflow
+        >
           <Grid
-            xs={12}
-            sm={5}
+            xxs={12}
+            // sm={12}
+            md={5.5}
+            lg={5}
+            xl={5}
             display="flex"
-            justifyContent="center"
-            alignItems="center"
-            sx={{}}
+            // justifyContent="center"
+            // alignItems="center"
+            sx={{ mb: 2 }}
           >
             <img
               src={singleCountry.flag}
@@ -157,8 +163,11 @@ const Details = () => {
             />
           </Grid>
           <Grid
-            xs={12}
-            sm={6}
+            xxs={12}
+            // sm={12}
+            md={5.5}
+            lg={6}
+            xl={6}
             display="flex"
             justifyContent="center"
             alignItems="center"
@@ -173,7 +182,11 @@ const Details = () => {
                   {singleCountry.name}
                 </Typography>
               </Box>
-              <Stack direction="row" justifyContent="space-between">
+              <Stack
+                direction={{ xxs: "column", sm: "row" }}
+                justifyContent="space-between"
+                spacing={{ xxs: 2 }}
+              >
                 <Stack direction="column">
                   <Typography variant="subtitle1" sx={{ mb: 1 }}>
                     Native Name: <span>{singleCountry.nativeName}</span>
@@ -217,9 +230,9 @@ const Details = () => {
               </Stack>
               <Stack
                 spacing={2}
-                direction="row"
+                direction={{ xxs: "column", lg: "row" }}
                 justifyContent="flex-start"
-                alignItems="center"
+                alignItems={{ xxs: "flex-start", lg: "center" }}
                 sx={{ mt: 2 }}
               >
                 <Typography
@@ -229,7 +242,11 @@ const Details = () => {
                 >
                   Border Countries:
                 </Typography>
-                <Stack direction="row" justifyContent="flex-start">
+                <Stack
+                  direction="row"
+                  justifyContent="flex-start"
+                  flexWrap="wrap"
+                >
                   {borderCountries.map((country, index) => {
                     return (
                       <Link to={`/Details/${country}`}>
@@ -245,7 +262,6 @@ const Details = () => {
           </Grid>
         </Grid>
       </Container>
-      {/* </Paper> */}
     </>
   );
 };
