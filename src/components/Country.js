@@ -3,14 +3,14 @@ import { Typography, Stack, Card, Box } from "@mui/material";
 
 const Country = ({ name, population, region, capital, flag }) => {
   return (
-    <Card sx={{ height: "300px", width: 250 }}>
+    <Card sx={{ height: "300px", width: 250, backgroundColor: "primary.main" }}>
       <Box
         sx={{
           height: "150px",
           width: "100%",
         }}
       >
-        <img src={flag} width="250" height="150" alt="country's flag" />
+        <img src={flag} width="100%" height="150" alt="country's flag" />
       </Box>
       <Stack sx={{ mt: 2, pl: 2 }}>
         <Typography
