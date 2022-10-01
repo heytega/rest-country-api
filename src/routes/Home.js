@@ -143,11 +143,16 @@ const Home = ({}) => {
   }, []);
 
   return (
-    <Container maxWidth="xl">
+    <Container
+      maxWidth="xl"
+      sx={{
+        backgroundColor: "primary.light",
+      }}
+    >
       <Stack
         sx={{ pt: 4, mb: 6 }}
-        direction={{ xs: "column", sm: "row" }}
-        spacing={6}
+        direction={{ xxs: "column", sm: "row" }}
+        spacing={{ xxs: 2 }}
         justifyContent="space-between"
       >
         <Search>
@@ -167,14 +172,12 @@ const Home = ({}) => {
             width: "200px",
             height: "50px",
             border: "none",
-            // backgroundColor: "white",
+            backgroundColor: "primary.main",
           }}
         >
-          <Paper sx={{ height: "100%" }}>
-            <InputLabel id="demo-simple-select-label">
-              Filter by Region
-            </InputLabel>
-          </Paper>
+          <InputLabel id="demo-simple-select-label">
+            Filter by Region
+          </InputLabel>
 
           <Select
             labelId="demo-simple-select-label"
@@ -182,7 +185,7 @@ const Home = ({}) => {
             value={region}
             label="Filter by Region"
             onChange={handleChange}
-            sx={{ backgroundColor: "white" }}
+            sx={{ backgroundColor: "primary.main" }}
           >
             <MenuItem value={"all"}>All</MenuItem>
             <MenuItem value={"africa"}>Africa</MenuItem>
