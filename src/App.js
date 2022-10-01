@@ -12,6 +12,12 @@ import { dark } from "@mui/material/styles/createPalette";
 const darkmode = createTheme({
   palette: {
     mode: "dark",
+    primary: {
+      main: "hsl(209, 23%, 22%)", //element
+      light: "hsl(207, 26%, 17%)", //background
+      dark: "hsl(200, 15%, 8%)", //text
+      input: "hsl(0, 0%, 52%)",
+    },
   },
   typography: {
     fontFamily: "Nunito Sans",
@@ -24,10 +30,23 @@ const darkmode = createTheme({
     h6: {
       fontFamily: "Nunito Sans",
       fontWeight: 700,
+      fontSize: "1.2rem",
     },
     subtitle1: {
       fontWeight: 600,
       fontSize: "1.1rem",
+    },
+  },
+
+  breakpoints: {
+    values: {
+      xxs: 0,
+      xs: 500,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1400,
+      xxl: 1536,
     },
   },
 });
@@ -35,16 +54,29 @@ const darkmode = createTheme({
 const lightmode = createTheme({
   palette: {
     mode: "light",
-    common: {
-      LightGray: "#FAFAFA",
-      DarkGray: "#858585",
-      DarkBlueT: "#111517",
-    },
+    // common: {
+    //   LightGray: "#FAFAFA",
+    //   DarkGray: "#858585",
+    //   DarkBlueT: "#111517",
+    // },
     primary: {
-      main: "#fff",
-      light: "rgb(255, 255, 255)",
-      dark: "rgb(178, 178, 178)",
-      contrastText: "DarkBlueT",
+      main: "#fff", //element
+      light: "hsl(0, 0%, 98%)", //background
+      dark: "hsl(200, 15%, 8%)", //text
+      input: "hsl(0, 0%, 52%)",
+      contrastText: "#111517",
+    },
+  },
+
+  breakpoints: {
+    values: {
+      xxs: 0,
+      xs: 500,
+      sm: 600,
+      md: 900,
+      lg: 1200,
+      xl: 1400,
+      xxl: 1536,
     },
   },
 
@@ -59,6 +91,12 @@ const lightmode = createTheme({
     h6: {
       fontFamily: "Nunito Sans",
       fontWeight: 700,
+      "@media (max-width:400px)": {
+        fontSize: "0.9rem",
+      },
+      "@media (max-width: 280px)": {
+        fontSize: "0.7rem",
+      },
     },
     subtitle1: {
       fontWeight: 600,
@@ -77,7 +115,6 @@ const App = () => {
     setDarkMode(!darkMode);
   };
   return (
-    // <Paper>
     <ThemeProvider theme={darkMode ? darkmode : lightmode}>
       <BrowserRouter>
         <NavBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
@@ -87,7 +124,6 @@ const App = () => {
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
-    /* </Paper> */
   );
 };
 
