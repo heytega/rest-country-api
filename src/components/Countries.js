@@ -14,9 +14,10 @@ const Countries = ({ countries, loading }) => {
       <>
         <Grid
           container
-          rowSpacing={{ xs: 5 }}
-          columnSpacing={{ xs: 12 }}
+          rowSpacing={{ xxs: 5 }}
+          columnSpacing={{ xxs: 12 }}
           columns={12}
+          disableEqualOverflow
         >
           {/* xs, extra-small: 0px
               sm, small: 600px
@@ -27,9 +28,10 @@ const Countries = ({ countries, loading }) => {
             <Grid
               display="flex"
               justifyContent="center"
+              // alignSelf="center"
               // justifyContent="space-between"
               alignItems="center"
-              xs={12}
+              xxs={12}
               sm={6}
               md={4}
               lg={3}
