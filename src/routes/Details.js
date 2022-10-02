@@ -121,147 +121,153 @@ const Details = () => {
 
   return (
     <>
-      <Container maxWidth="xl">
-        <Link to="/">
-          <Button
-            variant="contained"
-            startIcon={<KeyboardBackspaceIcon />}
-            sx={{ mt: 4, mb: 6, pr: 3.5, pl: 3.5, pt: 1.3, pb: 1.3 }}
-          >
-            Back
-          </Button>
-        </Link>
+      <Box sx={{ backgroundColor: "primary.light", height: "100vh" }}>
+        <Container maxWidth="xl" sx={{ backgroundColor: "primary.light" }}>
+          <Link to="/">
+            <Button
+              variant="contained"
+              startIcon={<KeyboardBackspaceIcon />}
+              sx={{ mt: 4, mb: 6, pr: 3.5, pl: 3.5, pt: 1.3, pb: 1.3 }}
+            >
+              Back
+            </Button>
+          </Link>
 
-        {/* xs, extra-small: 0px
+          {/* xs, extra-small: 0px
               sm, small: 600px
               md, medium: 900px
               lg, large: 1200px
               xl, extra-large: 1400px
               xxl, extra-extra-large: 1536px */}
 
-        <Grid
-          container
-          columnSpacing={{ xs: 14 }}
-          column={12}
-          disableEqualOverflow
-        >
           <Grid
-            xxs={12}
-            // sm={12}
-            md={5.5}
-            lg={5}
-            xl={5}
-            display="flex"
-            // justifyContent="center"
-            // alignItems="center"
-            sx={{ mb: 2 }}
+            container
+            columnSpacing={{ xs: 14 }}
+            column={12}
+            disableEqualOverflow
           >
-            <img
-              src={singleCountry.flag}
-              alt="country's flag"
-              sx={{ height: "500px" }}
-            />
-          </Grid>
-          <Grid
-            xxs={12}
-            // sm={12}
-            md={5.5}
-            lg={6}
-            xl={6}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Stack
-              direction="column"
-              justifyContent="space-between"
-              sx={{ height: "290px", width: "100%" }}
+            <Grid
+              xxs={12}
+              // sm={12}
+              md={5.5}
+              lg={5}
+              xl={5}
+              display="flex"
+              // justifyContent="center"
+              // alignItems="center"
+              sx={{ mb: 2 }}
             >
-              <Box>
-                <Typography variant="h4" sx={{ mb: 2 }}>
-                  {singleCountry.name}
-                </Typography>
-              </Box>
+              <img
+                src={singleCountry.flag}
+                alt="country's flag"
+                sx={{ height: "500px" }}
+              />
+            </Grid>
+            <Grid
+              xxs={12}
+              // sm={12}
+              md={5.5}
+              lg={6}
+              xl={6}
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
               <Stack
-                direction={{ xxs: "column", sm: "row" }}
+                direction="column"
                 justifyContent="space-between"
-                spacing={{ xxs: 2 }}
+                sx={{ height: "290px", width: "100%" }}
               >
-                <Stack direction="column">
-                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Native Name: <span>{singleCountry.nativeName}</span>
+                <Box>
+                  <Typography variant="h4" sx={{ mb: 2 }}>
+                    {singleCountry.name}
                   </Typography>
+                </Box>
+                <Stack
+                  direction={{ xxs: "column", sm: "row" }}
+                  justifyContent="space-between"
+                  spacing={{ xxs: 2 }}
+                >
+                  <Stack direction="column">
+                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                      Native Name: <span>{singleCountry.nativeName}</span>
+                    </Typography>
 
-                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Population: <span>{singleCountry.population}</span>
-                  </Typography>
-                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Region: <span>{singleCountry.region}</span>
-                  </Typography>
-                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Sub Region: <span>{singleCountry.subregion}</span>
-                  </Typography>
-                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Capital: <span>{singleCountry.capital}</span>
-                  </Typography>
+                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                      Population: <span>{singleCountry.population}</span>
+                    </Typography>
+                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                      Region: <span>{singleCountry.region}</span>
+                    </Typography>
+                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                      Sub Region: <span>{singleCountry.subregion}</span>
+                    </Typography>
+                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                      Capital: <span>{singleCountry.capital}</span>
+                    </Typography>
+                  </Stack>
+
+                  <Stack direction="column" alignContent="center">
+                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                      Top Level Domain: <span>{singleCountry.tld}</span>
+                    </Typography>
+
+                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                      Currencies: <span>{singleCountry.currencies}</span>
+                    </Typography>
+
+                    <Stack
+                      spacing={1}
+                      sx={{ mb: 1 }}
+                      direction="row"
+                      justifyContent="flex-start"
+                    >
+                      <Typography variant="subtitle1">Languages:</Typography>
+                      <Typography variant="subtitle1">
+                        <span>{singleCountry.languages}</span>
+                      </Typography>
+                    </Stack>
+                  </Stack>
                 </Stack>
-
-                <Stack direction="column" alignContent="center">
-                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Top Level Domain: <span>{singleCountry.tld}</span>
+                <Stack
+                  spacing={2}
+                  direction={{ xxs: "column", lg: "row" }}
+                  justifyContent="flex-start"
+                  alignItems={{ xxs: "flex-start", lg: "center" }}
+                  sx={{ mt: 2 }}
+                >
+                  <Typography
+                    variant="subtitle1"
+                    // sx={{ mb: 1 }}
+                    alignItems="center"
+                  >
+                    Border Countries:
                   </Typography>
-
-                  <Typography variant="subtitle1" sx={{ mb: 1 }}>
-                    Currencies: <span>{singleCountry.currencies}</span>
-                  </Typography>
-
                   <Stack
-                    spacing={1}
-                    sx={{ mb: 1 }}
                     direction="row"
                     justifyContent="flex-start"
+                    flexWrap="wrap"
                   >
-                    <Typography variant="subtitle1">Languages:</Typography>
-                    <Typography variant="subtitle1">
-                      <span>{singleCountry.languages}</span>
-                    </Typography>
+                    {borderCountries.map((country, index) => {
+                      return (
+                        <Link to={`/Details/${country}`}>
+                          <Button
+                            key={index}
+                            variant="contained"
+                            sx={{ mr: 2 }}
+                          >
+                            {country}
+                          </Button>
+                        </Link>
+                      );
+                    })}
                   </Stack>
                 </Stack>
               </Stack>
-              <Stack
-                spacing={2}
-                direction={{ xxs: "column", lg: "row" }}
-                justifyContent="flex-start"
-                alignItems={{ xxs: "flex-start", lg: "center" }}
-                sx={{ mt: 2 }}
-              >
-                <Typography
-                  variant="subtitle1"
-                  // sx={{ mb: 1 }}
-                  alignItems="center"
-                >
-                  Border Countries:
-                </Typography>
-                <Stack
-                  direction="row"
-                  justifyContent="flex-start"
-                  flexWrap="wrap"
-                >
-                  {borderCountries.map((country, index) => {
-                    return (
-                      <Link to={`/Details/${country}`}>
-                        <Button key={index} variant="contained" sx={{ mr: 2 }}>
-                          {country}
-                        </Button>
-                      </Link>
-                    );
-                  })}
-                </Stack>
-              </Stack>
-            </Stack>
+            </Grid>
           </Grid>
-        </Grid>
-      </Container>
+        </Container>
+      </Box>
     </>
   );
 };
