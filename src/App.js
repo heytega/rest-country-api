@@ -16,7 +16,7 @@ const darkmode = createTheme({
       main: "hsl(209, 23%, 22%)", //element
       light: "hsl(207, 26%, 17%)", //background
       dark: "hsl(200, 15%, 8%)", //text
-      input: "hsl(0, 0%, 52%)",
+      contrastText: "#111517",
     },
   },
   typography: {
@@ -64,7 +64,7 @@ const lightmode = createTheme({
       light: "hsl(0, 0%, 98%)", //background
       dark: "hsl(200, 15%, 8%)", //text
       input: "hsl(0, 0%, 52%)",
-      contrastText: "#111517",
+      contrastText: "hsl(0, 0%, 52%)",
     },
   },
 
@@ -77,6 +77,31 @@ const lightmode = createTheme({
       lg: 1200,
       xl: 1400,
       xxl: 1536,
+    },
+  },
+
+  components: {
+    // Name of the component
+    MuiAppBar: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          // border: "none",
+          boxShadow: "none",
+        },
+      },
+    },
+
+    MuiContainer: {
+      styleOverrides: {
+        // Name of the slot
+        root: {
+          // Some CSS
+          // border: "none",
+          backgroundColor: "hsl(0, 0%, 98%)",
+        },
+      },
     },
   },
 
