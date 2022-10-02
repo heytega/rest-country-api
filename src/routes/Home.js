@@ -9,6 +9,7 @@ import {
   Select,
   Paper,
   Container,
+  Box,
 } from "@mui/material";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
@@ -143,61 +144,67 @@ const Home = ({}) => {
   }, []);
 
   return (
-    <Container
-      maxWidth="xl"
+    <Box
       sx={{
         backgroundColor: "primary.light",
       }}
     >
-      <Stack
-        sx={{ pt: 4, mb: 6 }}
-        direction={{ xxs: "column", sm: "row" }}
-        spacing={{ xxs: 2 }}
-        justifyContent="space-between"
+      <Container
+        maxWidth="xl"
+        sx={{
+          backgroundColor: "primary.light",
+        }}
       >
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <StyledInputBase
-            placeholder="Search for a country…"
-            inputProps={{ "aria-label": "search" }}
-            value={search}
-            onChange={handleSearch}
-          />
-        </Search>
-
-        <FormControl
-          sx={{
-            width: "200px",
-            height: "50px",
-            border: "none",
-            backgroundColor: "primary.main",
-          }}
+        <Stack
+          sx={{ pt: 4, mb: 6 }}
+          direction={{ xxs: "column", sm: "row" }}
+          spacing={{ xxs: 2 }}
+          justifyContent="space-between"
         >
-          <InputLabel id="demo-simple-select-label">
-            Filter by Region
-          </InputLabel>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search for a country…"
+              inputProps={{ "aria-label": "search" }}
+              value={search}
+              onChange={handleSearch}
+            />
+          </Search>
 
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={region}
-            label="Filter by Region"
-            onChange={handleChange}
-            sx={{ backgroundColor: "primary.main" }}
+          <FormControl
+            sx={{
+              width: "200px",
+              height: "50px",
+              border: "none",
+              backgroundColor: "primary.main",
+            }}
           >
-            <MenuItem value={"all"}>All</MenuItem>
-            <MenuItem value={"africa"}>Africa</MenuItem>
-            <MenuItem value={"america"}>America</MenuItem>
-            <MenuItem value={"asia"}>Asia</MenuItem>
-            <MenuItem value={"europe"}>Europe</MenuItem>
-            <MenuItem value={"oceania"}>Oceania</MenuItem>
-          </Select>
-        </FormControl>
-      </Stack>
-      <Countries countries={countries} loading={loading} />
-    </Container>
+            <InputLabel id="demo-simple-select-label">
+              Filter by Region
+            </InputLabel>
+
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={region}
+              label="Filter by Region"
+              onChange={handleChange}
+              sx={{ backgroundColor: "primary.main" }}
+            >
+              <MenuItem value={"all"}>All</MenuItem>
+              <MenuItem value={"africa"}>Africa</MenuItem>
+              <MenuItem value={"america"}>America</MenuItem>
+              <MenuItem value={"asia"}>Asia</MenuItem>
+              <MenuItem value={"europe"}>Europe</MenuItem>
+              <MenuItem value={"oceania"}>Oceania</MenuItem>
+            </Select>
+          </FormControl>
+        </Stack>
+        <Countries countries={countries} loading={loading} />
+      </Container>
+    </Box>
   );
 };
 
