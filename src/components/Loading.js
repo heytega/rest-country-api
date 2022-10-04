@@ -1,10 +1,13 @@
 import React from "react";
+import { Box, Typography } from "@mui/material";
 
 const Loading = () => {
   return (
-    <div>
-      <h1>THE PAGE IS LOADING</h1>
-    </div>
+    <Box
+      sx={{ backgroundColor: "primary.light", pt: 50, pb: 50, margin: "auto" }}
+    >
+      <Typography variant="h6">Loading...</Typography>
+    </Box>
   );
 };
 

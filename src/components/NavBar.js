@@ -10,6 +10,7 @@ import {
   Button,
 } from "@mui/material";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
+import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
 
 const NavBar = ({ toggleDarkMode, darkMode }) => {
   return (
@@ -21,32 +22,38 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
       >
         <Container
           maxWidth="xl"
-          // sx={{ display: "flex", flexDirection: "row", mt: 2, mb: 2 }}
           sx={{
             backgroundColor: "primary.main",
           }}
+          // disableEqualOverflow
         >
           <Toolbar sx={{ mt: 0.5, mb: 0.5, backgroundColor: "primary.main" }}>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Where in the world?
             </Typography>
-
             <Button
               variant="outlined"
-              startIcon={<DarkModeOutlinedIcon />}
+              startIcon={
+                darkMode ? <DarkModeOutlinedIcon /> : <LightModeOutlinedIcon />
+              }
               onClick={toggleDarkMode}
               sx={{
-                // mt: 4,
-                // mb: 6,
-                // pr: 3.5,
-                // pl: 3.5,
-                // pt: 1.3,
-                // pb: 1.3,
-                color: darkMode ? "white" : "#0000",
-                borderColor: "#fff",
+                color: "text.primary",
+                border: "1px solid",
+                backgroundColor: "primary.light",
+                // fontSize: "0.1rem",
+                pr: 1,
+                pl: 1,
+                pt: 1.3,
+                pb: 1.3,
               }}
             >
-              {darkMode ? "Dark Mode" : "Light Mode"}
+              <Typography
+                variant="h6"
+                sx={{ color: "text.primary", fontSize: "1rem" }}
+              >
+                {darkMode ? "Dark Mode" : "Light Mode"}
+              </Typography>
             </Button>
             {/* <DarkModeOutlinedIcon
             onClick={toggleDarkMode}
