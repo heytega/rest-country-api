@@ -121,8 +121,17 @@ const Details = () => {
 
   return (
     <>
-      <Box sx={{ backgroundColor: "primary.light", height: "100vh" }}>
-        <Container maxWidth="xl" sx={{ backgroundColor: "primary.light" }}>
+      <Box
+        sx={{
+          backgroundColor: "primary.light",
+          // pb: "2",
+          // overflow: "hidden",
+        }}
+      >
+        <Container
+          maxWidth="xl"
+          sx={{ backgroundColor: "primary.light", height: "100vh", pd: "5rem" }}
+        >
           <Link to="/">
             <Button
               variant="contained"
@@ -145,6 +154,13 @@ const Details = () => {
             columnSpacing={{ xs: 14 }}
             column={12}
             disableEqualOverflow
+            sx={{
+              color: "text.primary",
+              pt: 5,
+              pb: 5,
+              mb: 10,
+              backgroundColor: "primary.light",
+            }}
           >
             <Grid
               xxs={12}
@@ -157,11 +173,9 @@ const Details = () => {
               // alignItems="center"
               sx={{ mb: 2 }}
             >
-              <img
-                src={singleCountry.flag}
-                alt="country's flag"
-                sx={{ height: "500px" }}
-              />
+              <Box sx={{ height: 350 }}>
+                <img src={singleCountry.flag} alt="country's flag" />
+              </Box>
             </Grid>
             <Grid
               xxs={12}
@@ -254,7 +268,7 @@ const Details = () => {
                           <Button
                             key={index}
                             variant="contained"
-                            sx={{ mr: 2 }}
+                            sx={{ mr: 2, mb: 1 }}
                           >
                             {country}
                           </Button>

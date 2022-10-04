@@ -147,6 +147,7 @@ const Home = ({}) => {
     <Box
       sx={{
         backgroundColor: "primary.light",
+        height: "100vh",
       }}
     >
       <Container
