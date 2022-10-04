@@ -130,13 +130,13 @@ const Details = () => {
       >
         <Container
           maxWidth="xl"
-          sx={{ backgroundColor: "primary.light", height: "100vh", pd: "5rem" }}
+          sx={{ backgroundColor: "primary.light", height: "100%", pd: "5rem" }}
         >
           <Link to="/">
             <Button
               variant="contained"
               startIcon={<KeyboardBackspaceIcon />}
-              sx={{ mt: 4, mb: 6, pr: 3.5, pl: 3.5, pt: 1.3, pb: 1.3 }}
+              sx={{ mt: 4, mb: 3.5, pr: 3.5, pl: 3.5, pt: 1.3, pb: 1.3 }}
             >
               Back
             </Button>
@@ -154,11 +154,14 @@ const Details = () => {
             columnSpacing={{ xs: 14 }}
             column={12}
             disableEqualOverflow
+            height={{ lg: 450 }}
+            alignItems="center"
             sx={{
               color: "text.primary",
               pt: 5,
               pb: 5,
-              mb: 10,
+              // mb: 10,
+              // height: 450,
               backgroundColor: "primary.light",
             }}
           >
@@ -171,9 +174,9 @@ const Details = () => {
               display="flex"
               // justifyContent="center"
               // alignItems="center"
-              sx={{ mb: 2 }}
+              sx={{ mb: 3 }}
             >
-              <Box sx={{ height: 350 }}>
+              <Box sx={{ height: 355 }}>
                 <img src={singleCountry.flag} alt="country's flag" />
               </Box>
             </Grid>
@@ -186,11 +189,16 @@ const Details = () => {
               display="flex"
               justifyContent="center"
               alignItems="center"
+              sx={{ backgroundColor: "primary.light" }}
             >
               <Stack
                 direction="column"
                 justifyContent="space-between"
-                sx={{ height: "290px", width: "100%" }}
+                sx={{
+                  height: "70%",
+                  width: "100%",
+                  backgroundColor: "primary.light",
+                }}
               >
                 <Box>
                   <Typography variant="h4" sx={{ mb: 2 }}>
@@ -248,7 +256,7 @@ const Details = () => {
                   direction={{ xxs: "column", lg: "row" }}
                   justifyContent="flex-start"
                   alignItems={{ xxs: "flex-start", lg: "center" }}
-                  sx={{ mt: 2 }}
+                  sx={{ mt: 1 }}
                 >
                   <Typography
                     variant="subtitle1"

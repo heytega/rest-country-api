@@ -142,7 +142,7 @@ const lightmode = createTheme({
         fontSize: "0.9rem",
       },
       "@media (max-width: 280px)": {
-        fontSize: "0.7rem",
+        fontSize: "0.8rem",
       },
     },
     subtitle1: {

@@ -43,12 +43,13 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   position: "absolute",
   pointerEvents: "none",
   display: "flex",
+  color: theme.palette.text.primary,
   alignItems: "center",
   justifyContent: "center",
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
+  color: theme.palette.text.primary,
   "& .MuiInputBase-input": {
     padding: theme.spacing(2, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -157,7 +158,10 @@ const Home = ({}) => {
         }}
       >
         <Stack
-          sx={{ pt: 4, mb: 6 }}
+          sx={{
+            pt: 4,
+            mb: 6,
+          }}
           direction={{ xxs: "column", sm: "row" }}
           spacing={{ xxs: 2 }}
           justifyContent="space-between"
