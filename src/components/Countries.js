@@ -18,6 +18,7 @@ const Countries = ({ countries, loading }) => {
           columnSpacing={{ xxs: 12 }}
           columns={12}
           disableEqualOverflow
+          sx={{ backgroundColor: "primary.light" }}
         >
           {/* xs, extra-small: 0px
               sm, small: 600px
