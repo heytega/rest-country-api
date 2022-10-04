@@ -15,11 +15,11 @@ const Country = ({ name, population, region, capital, flag }) => {
       <Stack sx={{ mt: 2, pl: 2 }}>
         <Typography
           variant="h6"
-          sx={{ lineHeight: 1, mb: 2, color: "DarkBlueT" }}
+          sx={{ lineHeight: 1, mb: 2, color: "common.DarkBlueT" }}
         >
-          <span>{name}</span>
+          {name}
         </Typography>
-        <Typography>
+        <Typography sx={{ color: "DarkBlueT" }}>
           Population: <span>{population}</span>
         </Typography>
         <Typography>
