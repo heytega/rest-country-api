@@ -8,10 +8,10 @@ const Country = ({ name, population, region, capital, flag }) => {
       <Box
         sx={{
           height: "150px",
-          width: "100%",
+          width: 270,
         }}
       >
-        <img src={flag} width="100%" height="150" alt="country's flag" />
+        <img src={flag} alt="country's flag" />
       </Box>
       <Stack sx={{ mt: 2, pl: 2 }}>
         <Typography
