@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Countries from "../components/Countries";
+import Loading from "../components/Loading";
 import {
   Stack,
   InputBase,
@@ -87,6 +88,7 @@ const Home = ({}) => {
   };
 
   const fetchRegionData = async (regionName) => {
+    setLoading(true);
     try {
       const res = await fetch(
         `https://restcountries.com/v3.1/region/${regionName}`
@@ -94,16 +96,20 @@ const Home = ({}) => {
       if (res.ok) {
         const data = await res.json();
         setCountries(data);
+        setLoading(false);
       }
     } catch (error) {
       alert("error while fetching region");
     }
+
     if (regionName === "all") {
+      setLoading(true);
       try {
         const res = await fetch(allUrl);
         if (res.ok) {
           const info = await res.json();
           setCountries(info);
+          setLoading(false);
         }
       } catch (error) {
         alert("error while fetching all region");
@@ -207,7 +213,8 @@ const Home = ({}) => {
             </Select>
           </FormControl>
         </Stack>
-        <Countries countries={countries} loading={loading} />
+
+        {loading ? <Loading /> : <Countries countries={countries} />}
       </Container>
     </Box>
   );
