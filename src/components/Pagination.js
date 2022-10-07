@@ -2,7 +2,7 @@ import React from "react";
 import { Pagination } from "@mui/material";
 
 const Pagination = () => {
-  return <div>Pagination</div>;
+  return <Pagination count={10} variant="outlined" />;
 };
 
 export default Pagination;
