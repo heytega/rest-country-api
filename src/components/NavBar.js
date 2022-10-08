@@ -41,7 +41,7 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
                 color: "text.primary",
                 border: "1px solid",
                 backgroundColor: "primary.light",
-                // fontSize: "0.1rem",
+
                 pr: 1,
                 pl: 1,
                 pt: 1.3,
