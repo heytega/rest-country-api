@@ -172,8 +172,6 @@ const Details = () => {
               lg={5}
               xl={5}
               display="flex"
-              // justifyContent="center"
-              // alignItems="center"
               sx={{ mb: 3 }}
             >
               <Box sx={{ height: 355 }}>
