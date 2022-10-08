@@ -55,18 +55,6 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
                 {darkMode ? "Dark Mode" : "Light Mode"}
               </Typography>
             </Button>
-            {/* <DarkModeOutlinedIcon
-            onClick={toggleDarkMode}
-            sx={{ color: darkMode ? "white" : "DarkBlueT", cursor: "pointer" }}
-          />
-          <Typography
-            variant="h6"
-            component="div"
-            onClick={toggleDarkMode}
-            sx={{ color: darkMode ? "white" : "DarkBlueT", cursor: "pointer" }}
-          >
-            {darkMode ? "Dark Mode" : "Light Mode"}
-          </Typography> */}
           </Toolbar>
         </Container>
       </Box>
