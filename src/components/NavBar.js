@@ -25,7 +25,6 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
           sx={{
             backgroundColor: "primary.main",
           }}
-          // disableEqualOverflow
         >
           <Toolbar sx={{ mt: 0.5, mb: 0.5, backgroundColor: "primary.main" }}>
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
