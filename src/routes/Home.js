@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Countries from "../components/Countries";
 import Loading from "../components/Loading";
+import { motion } from "framer-motion";
 import {
   Stack,
   InputBase,
@@ -70,12 +71,13 @@ const Home = ({}) => {
   // Data initializations
 
   const [countries, setCountries] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [region, setRegion] = useState("");
   const [search, setSearch] = useState("");
 
   // Methods & functions
   const fetchCountriesData = async () => {
+    setLoading(true);
     try {
       const res = await fetch(allUrl);
       if (res.ok) {
@@ -168,9 +170,13 @@ const Home = ({}) => {
             pt: 4,
             mb: 6,
           }}
+          component={motion.div}
           direction={{ xxs: "column", sm: "row" }}
           spacing={{ xxs: 2 }}
           justifyContent="space-between"
+          initial={{ y: -250 }}
+          animate={{ y: 0 }}
+          transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
         >
           <Search>
             <SearchIconWrapper>
@@ -213,8 +219,14 @@ const Home = ({}) => {
             </Select>
           </FormControl>
         </Stack>
-
-        {loading ? <Loading /> : <Countries countries={countries} />}
+        <motion.div
+          // component={motion.div}
+          initial={{ x: "100vw" }}
+          animate={{ x: 0 }}
+          transition={{ type: "Spring", delay: 9 }}
+        >
+          {loading ? <Loading /> : <Countries countries={countries} />}
+        </motion.div>
       </Container>
     </Box>
   );
