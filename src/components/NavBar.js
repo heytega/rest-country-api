@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 const NavBar = ({ toggleDarkMode, darkMode }) => {
   return (
@@ -30,29 +31,16 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Where in the world?
             </Typography>
+
             <Button
-              variant="outlined"
+              variant="contained"
               startIcon={
                 darkMode ? <DarkModeOutlinedIcon /> : <LightModeOutlinedIcon />
               }
               onClick={toggleDarkMode}
-              sx={{
-                color: "text.primary",
-                border: "1px solid",
-                backgroundColor: "primary.light",
-
-                pr: 1,
-                pl: 1,
-                pt: 1.3,
-                pb: 1.3,
-              }}
+              sx={{ pr: 3.5, pl: 3.5, pt: 1.3, pb: 1.3 }}
             >
-              <Typography
-                variant="h6"
-                sx={{ color: "text.primary", fontSize: "1rem" }}
-              >
-                {darkMode ? "Dark Mode" : "Light Mode"}
-              </Typography>
+              {darkMode ? "Dark Mode" : "Light Mode"}
             </Button>
           </Toolbar>
         </Container>
