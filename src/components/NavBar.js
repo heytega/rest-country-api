@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   Box,
   AppBar,
@@ -15,8 +16,18 @@ import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 const NavBar = ({ toggleDarkMode, darkMode }) => {
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: "primary.light" }}>
+      {/* <motion.div
+        className="animatable"
+        initial={{ y: -250 }}
+        animate={{ y: 1 }}
+        transition={{ delay: 0.2 }}
+      > */}
       <Box
+        component={motion.div}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1.5 }}
         sx={{
           backgroundColor: "primary.main",
         }}
@@ -45,6 +56,7 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
           </Toolbar>
         </Container>
       </Box>
+      {/* </motion.div> */}
     </AppBar>
   );
 };
