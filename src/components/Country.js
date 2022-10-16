@@ -1,9 +1,10 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Typography, Stack, Card, Box } from "@mui/material";
 
 const Country = ({ name, population, region, capital, flag }) => {
   return (
-    <Card sx={{ height: "300px", width: 270, backgroundColor: "primary.main" }}>
+    <Card sx={{ height: "300px", width: 280, backgroundColor: "primary.main" }}>
       {/* width was previously 250 */}
       <Box
         sx={{
