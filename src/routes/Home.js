@@ -227,7 +227,7 @@ const Home = ({}) => {
           // component={motion.div}
           initial={{ x: "100vw" }}
           animate={{ x: 0 }}
-          transition={{ type: "Spring", delay: 9 }}
+          transition={{ type: "Spring", delay: 0.5, duration: 1 }}
         >
           {loading ? <Loading /> : <Countries countries={countries} />}
         </motion.div>
