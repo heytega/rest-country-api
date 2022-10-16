@@ -13,6 +13,7 @@ const Loading = () => {
       }}
     >
       <CircularProgress
+        size={60}
         sx={{
           color: "text.primary",
         }}
