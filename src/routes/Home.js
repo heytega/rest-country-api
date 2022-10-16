@@ -83,9 +83,11 @@ const Home = ({}) => {
       if (res.ok) {
         const data = await res.json();
         setCountries(data);
+        setLoading(false);
       }
     } catch (error) {
-      alert("Error Encountered");
+      // alert("Error Encountered");
+      console.log(error);
     }
   };
 
@@ -120,6 +122,7 @@ const Home = ({}) => {
   };
 
   const fetchNameData = async (countryName) => {
+    setLoading(true);
     try {
       const res = await fetch(
         `https://restcountries.com/v3.1/name/${countryName}`
@@ -127,6 +130,7 @@ const Home = ({}) => {
       if (res.ok) {
         const data = await res.json();
         setCountries(data);
+        setLoading(false);
       }
     } catch (error) {
       console.log(error);
@@ -149,7 +153,7 @@ const Home = ({}) => {
   // Effects
   useEffect(() => {
     fetchCountriesData();
-    setLoading(false);
+    // setLoading(false);
   }, []);
 
   return (
