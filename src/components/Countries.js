@@ -1,9 +1,7 @@
 import React from "react";
-// import { styled, alpha } from "@mui/material/styles";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Country from "./Country";
-import Loading from "./Loading";
-import { Box, Paper } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
 const Countries = ({ countries }) => {
@@ -24,6 +22,10 @@ const Countries = ({ countries }) => {
               xl, extra-large: 1536px */}
         {countries.map((country, index) => (
           <Grid
+            component={motion.div}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
             display="flex"
             justifyContent="center"
             // alignSelf="center"
