@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   Box,
   Typography,
@@ -124,11 +125,16 @@ const Details = () => {
       <Box
         sx={{
           backgroundColor: "primary.light",
+          height: "100%",
           // pb: "2",
           // overflow: "hidden",
         }}
       >
         <Container
+          component={motion.div}
+          initial={{ x: "100vw" }}
+          animate={{ x: 0 }}
+          transition={{ delay: 0.2, stiffness: 200 }}
           maxWidth="xl"
           sx={{ backgroundColor: "primary.light", height: "100%", pd: "5rem" }}
         >
