@@ -4,9 +4,19 @@ import { Box, Typography, CircularProgress } from "@mui/material";
 const Loading = () => {
   return (
     <Box
-      sx={{ display: "flex", zIndex: "3", backgroundColor: "primary.light" }}
+      sx={{
+        height: "50vh",
+        display: "flex",
+        justifyContent: "center",
+        backgroundColor: "primary.light",
+        alignItems: "center",
+      }}
     >
-      <CircularProgress sx={{ color: "text.primary" }} />
+      <CircularProgress
+        sx={{
+          color: "text.primary",
+        }}
+      />
     </Box>
   );
 };
