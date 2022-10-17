@@ -10,7 +10,7 @@ const Countries = ({ countries }) => {
       <Grid
         container
         rowSpacing={{ xxs: 5 }}
-        columnSpacing={{ xxs: 12 }}
+        columnSpacing={{ xxs: 8 }}
         columns={12}
         disableEqualOverflow
         sx={{ backgroundColor: "primary.light" }}
@@ -23,13 +23,16 @@ const Countries = ({ countries }) => {
         {countries.map((country, index) => (
           <Grid
             component={motion.div}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              // delay: 0.,
+              ease: [0, 0.71, 0.2, 1.01],
+              duration: 0.2,
+            }}
+            // sx={{ width: "100%" }}
             display="flex"
             justifyContent="center"
-            // alignSelf="center"
-            // justifyContent="space-between"
             alignItems="center"
             xxs={12}
             sm={6}
