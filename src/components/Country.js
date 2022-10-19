@@ -1,20 +1,21 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Typography, Stack, Card, Box } from "@mui/material";
-// import "./Country.css";
+import "./Country.css";
 
 const Country = ({ name, population, region, capital, flag }) => {
   return (
-    <Card sx={{ height: "350px", width: 280, backgroundColor: "primary.main" }}>
+    <Card sx={{ height: "350px", width: 300, backgroundColor: "primary.main" }}>
       {/* width was previously 270 */}
-      <Box
+      {/* <Box
         sx={{
-          height: "12rem",
-          width: "100%",
+          minHeight: "3rem",
+          maxHeight: "13rem",
+          width: 300,
         }}
-      >
-        <img src={flag} alt="country's flag" className="image" />
-      </Box>
+      > */}
+      <img src={flag} alt="country's flag" className="image" />
+      {/* </Box> */}
       <Stack sx={{ mt: 2, pl: 2 }}>
         <Typography
           variant="h6"
