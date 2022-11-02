@@ -6,13 +6,11 @@ import {
   Toolbar,
   Typography,
   Container,
-  IconButton,
-  Paper,
   Button,
 } from "@mui/material";
 import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+// import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 const NavBar = ({ toggleDarkMode, darkMode }) => {
   return (

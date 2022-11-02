@@ -9,15 +9,14 @@ import {
   MenuItem,
   FormControl,
   Select,
-  Paper,
   Container,
   Box,
 } from "@mui/material";
-import { styled, alpha } from "@mui/material/styles";
+import { styled } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
 
 const allUrl = "https://restcountries.com/v3.1/all";
-const regionUrl = "https://restcountries.com/v3.1/region/";
+// const regionUrl = "https://restcountries.com/v3.1/region/";
 
 // Theme Styling
 
@@ -67,7 +66,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Home = ({}) => {
+const Home = () => {
   // Data initializations
 
   const [countries, setCountries] = useState([]);

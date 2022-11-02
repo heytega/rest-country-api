@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
-import {
-  Box,
-  Typography,
-  Button,
-  Stack,
-  Paper,
-  Container,
-} from "@mui/material";
+import { Box, Typography, Button, Stack, Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
@@ -30,7 +23,7 @@ const Details = () => {
           console.log(data);
           const [
             {
-              name: { common, nativeName, official },
+              name: { common, official },
               population,
               region,
               subregion,
@@ -75,7 +68,7 @@ const Details = () => {
           const data = await res.json();
           const [
             {
-              name: { common, nativeName, official },
+              name: { common, official },
               population,
               region,
               subregion,

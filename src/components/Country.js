@@ -1,6 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { Typography, Stack, Card, Box } from "@mui/material";
+// import { motion } from "framer-motion";
+import { Typography, Stack, Card } from "@mui/material";
 import "./Country.css";
 
 const Country = ({ name, population, region, capital, flag }) => {

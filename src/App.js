@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Box, Paper } from "@mui/material";
+// import { Box, Paper } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Countries from "./components/Countries";
+// import Countries from "./components/Countries";
 import NavBar from "./components/NavBar";
 import Home from "./routes/Home";
 import Details from "./routes/Details";
 
-import { ClassNames } from "@emotion/react";
-import { dark } from "@mui/material/styles/createPalette";
+// import { ClassNames } from "@emotion/react";
+// import { dark } from "@mui/material/styles/createPalette";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
 const darkmode = createTheme({
