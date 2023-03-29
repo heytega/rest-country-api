@@ -4,18 +4,20 @@ import { Box, CircularProgress } from '@mui/material';
 const Loading = () => {
   return (
     <Box
+      component='div'
       sx={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
         backgroundColor: 'primary.light',
         alignItems: 'center',
+        margin: 'auto',
       }}
     >
       <CircularProgress
-        size={60}
+        size={50}
         sx={{
           color: 'text.primary',
+          position: 'absolute',
+          top: '50%',
+          right: '48%',
         }}
       />
     </Box>
