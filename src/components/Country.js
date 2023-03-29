@@ -1,7 +1,5 @@
 import React from 'react';
-// import { motion } from "framer-motion";
 import { Typography, Stack, Card, Box } from '@mui/material';
-// import './Country.css';
 
 const Country = ({ name, population, region, capital, flag }) => {
   return (
@@ -18,7 +16,6 @@ const Country = ({ name, population, region, capital, flag }) => {
         alt={`${name}'s flag`}
         src={flag}
       />
-      {/* <img src={flag} alt="country's flag" className='image' /> */}
       <Stack sx={{ mt: 2, pl: 2 }}>
         <Typography
           variant='h6'

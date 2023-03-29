@@ -1,8 +1,8 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-import Country from "./Country";
-import Grid from "@mui/material/Unstable_Grid2";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import Country from './Country';
+import Grid from '@mui/material/Unstable_Grid2';
 
 const Countries = ({ countries }) => {
   return (
@@ -13,7 +13,7 @@ const Countries = ({ countries }) => {
         columnSpacing={{ xxs: 8 }}
         columns={12}
         disableEqualOverflow
-        sx={{ backgroundColor: "primary.light" }}
+        sx={{ backgroundColor: 'primary.light' }}
       >
         {/* xs, extra-small: 0px
               sm, small: 600px
@@ -30,10 +30,9 @@ const Countries = ({ countries }) => {
               ease: [0, 0.71, 0.2, 1.01],
               duration: 0.2,
             }}
-            // sx={{ width: "100%" }}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
             xxs={12}
             sm={6}
             md={4}
