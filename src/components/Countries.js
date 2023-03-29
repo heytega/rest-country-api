@@ -22,7 +22,7 @@ const Countries = ({ countries }) => {
               xl, extra-large: 1536px */}
         {countries.map((country, index) => (
           <Grid
-            component={motion.div}
+            // component={motion.div}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{

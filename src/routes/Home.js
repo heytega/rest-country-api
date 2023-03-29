@@ -174,13 +174,13 @@ const Home = () => {
             pt: 4,
             mb: 6,
           }}
-          component={motion.div}
+          // component={motion.div}
           direction={{ xxs: 'column', sm: 'row' }}
           spacing={{ xxs: 2 }}
           justifyContent='space-between'
-          initial={{ y: -250 }}
-          animate={{ y: 0 }}
-          transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
+          // initial={{ y: -250 }}
+          // animate={{ y: 0 }}
+          // transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
         >
           <Search>
             <SearchIconWrapper>
@@ -223,14 +223,14 @@ const Home = () => {
             </Select>
           </FormControl>
         </Stack>
-        <motion.div
-          // component={motion.div}
-          initial={{ x: '100vw' }}
-          animate={{ x: 0 }}
-          transition={{ type: 'Spring', delay: 0.5, duration: 1 }}
+        <Box
+        // component={motion.div}
+        // initial={{ x: '100vw' }}
+        // animate={{ x: 0 }}
+        // transition={{ type: 'Spring', delay: 0.5, duration: 1 }}
         >
           {loading ? <Loading /> : <Countries countries={countries} />}
-        </motion.div>
+        </Box>
       </Container>
     </Box>
   );
