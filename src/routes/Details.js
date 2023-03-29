@@ -105,7 +105,7 @@ const Details = ({ loading, setLoading }) => {
 
           setBorderCountries(newBorders);
           setSingleCountry(newSingleCountry);
-          setLoading(false);
+          // setLoading(false);
         }
       }
     } catch (error) {
