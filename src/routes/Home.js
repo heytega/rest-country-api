@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Countries from '../components/Countries';
 import Loading from '../components/Loading';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import {
   Stack,
   InputBase,
@@ -66,11 +66,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const Home = () => {
+const Home = ({ loading, setLoading }) => {
   // Data initializations
 
   const [countries, setCountries] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [region, setRegion] = useState('');
   const [search, setSearch] = useState('');
 
@@ -152,7 +151,6 @@ const Home = () => {
   // Effects
   useEffect(() => {
     fetchCountriesData();
-    // setLoading(false);
   }, []);
 
   return (

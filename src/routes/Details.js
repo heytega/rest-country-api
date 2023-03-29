@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import Loading from '../components/Loading';
 import { Box, Typography, Button, Stack, Container } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
-const Details = () => {
+const Details = ({ loading, setLoading }) => {
   const [singleCountry, setSingleCountry] = useState({});
   const [borderCountries, setBorderCountries] = useState([]);
 
@@ -13,6 +14,7 @@ const Details = () => {
 
   const fetchSingleCountry = async (countryName) => {
     try {
+      setLoading(true);
       if (countryName.length <= 3) {
         const res = await fetch(
           `https://restcountries.com/v3.1/alpha/${countryName}`
@@ -58,6 +60,7 @@ const Details = () => {
 
           setBorderCountries(newBorders);
           setSingleCountry(newSingleCountry);
+          setLoading(false);
         }
       } else {
         const res = await fetch(
@@ -102,6 +105,7 @@ const Details = () => {
 
           setBorderCountries(newBorders);
           setSingleCountry(newSingleCountry);
+          setLoading(false);
         }
       }
     } catch (error) {
@@ -112,6 +116,8 @@ const Details = () => {
   useEffect(() => {
     fetchSingleCountry(countryName);
   }, [countryName]);
+
+  if (loading) return <Loading />;
 
   return (
     <>

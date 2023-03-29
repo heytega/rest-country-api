@@ -160,6 +160,7 @@ const lightmode = createTheme({
 });
 
 const App = () => {
+  const [loading, setLoading] = useState(false);
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [darkMode, setDarkMode] = useState(prefersDarkMode);
   const toggleDarkMode = () => {
@@ -171,8 +172,15 @@ const App = () => {
       <BrowserRouter>
         <NavBar toggleDarkMode={toggleDarkMode} darkMode={darkMode} />
         <Routes>
-          <Route exact path='/' element={<Home />} />
-          <Route path='/Details/:countryName' element={<Details />} />
+          <Route
+            exact
+            path='/'
+            element={<Home loading={loading} setLoading={setLoading} />}
+          />
+          <Route
+            path='/Details/:countryName'
+            element={<Details loading={loading} setLoading={setLoading} />}
+          />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
