@@ -131,10 +131,6 @@ const Details = ({ loading, setLoading }) => {
         }}
       >
         <Container
-          component={motion.div}
-          initial={{ x: '100vw' }}
-          animate={{ x: 0 }}
-          transition={{ delay: 0.2, stiffness: 200 }}
           maxWidth='xl'
           sx={{ backgroundColor: 'primary.light', height: '100%', pd: '5rem' }}
         >
@@ -156,6 +152,10 @@ const Details = ({ loading, setLoading }) => {
               xxl, extra-extra-large: 1536px */}
 
           <Grid
+            component={motion.div}
+            initial={{ x: '100vw' }}
+            animate={{ x: 0 }}
+            transition={{ delay: 0.2, stiffness: 200 }}
             container
             columnSpacing={{ xs: 14 }}
             column={12}
