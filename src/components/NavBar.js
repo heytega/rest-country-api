@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
 import {
   Box,
   AppBar,
@@ -7,14 +7,14 @@ import {
   Typography,
   Container,
   Button,
-} from "@mui/material";
-import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
-import LightModeOutlinedIcon from "@mui/icons-material/LightModeOutlined";
+} from '@mui/material';
+import DarkModeOutlinedIcon from '@mui/icons-material/DarkModeOutlined';
+import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 // import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 
 const NavBar = ({ toggleDarkMode, darkMode }) => {
   return (
-    <AppBar position="static" sx={{ backgroundColor: "primary.light" }}>
+    <AppBar position='fixed' sx={{ backgroundColor: 'primary.light' }}>
       {/* <motion.div
         className="animatable"
         initial={{ y: -250 }}
@@ -27,29 +27,29 @@ const NavBar = ({ toggleDarkMode, darkMode }) => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1, duration: 1.5 }}
         sx={{
-          backgroundColor: "primary.main",
+          backgroundColor: 'primary.main',
         }}
       >
         <Container
-          maxWidth="xl"
+          maxWidth='xl'
           sx={{
-            backgroundColor: "primary.main",
+            backgroundColor: 'primary.main',
           }}
         >
-          <Toolbar sx={{ mt: 0.5, mb: 0.5, backgroundColor: "primary.main" }}>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Toolbar sx={{ mt: 0.5, mb: 0.5, backgroundColor: 'primary.main' }}>
+            <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
               Where in the world?
             </Typography>
 
             <Button
-              variant="contained"
+              variant='contained'
               startIcon={
                 darkMode ? <DarkModeOutlinedIcon /> : <LightModeOutlinedIcon />
               }
               onClick={toggleDarkMode}
               sx={{ pr: 3.5, pl: 3.5, pt: 1.3, pb: 1.3 }}
             >
-              {darkMode ? "Dark Mode" : "Light Mode"}
+              {darkMode ? 'Dark Mode' : 'Light Mode'}
             </Button>
           </Toolbar>
         </Container>

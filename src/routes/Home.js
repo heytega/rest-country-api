@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import Countries from "../components/Countries";
-import Loading from "../components/Loading";
-import { motion } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import Countries from '../components/Countries';
+import Loading from '../components/Loading';
+import { motion } from 'framer-motion';
 import {
   Stack,
   InputBase,
@@ -11,17 +11,17 @@ import {
   Select,
   Container,
   Box,
-} from "@mui/material";
-import { styled } from "@mui/material/styles";
-import SearchIcon from "@mui/icons-material/Search";
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
+import SearchIcon from '@mui/icons-material/Search';
 
-const allUrl = "https://restcountries.com/v3.1/all";
+const allUrl = 'https://restcountries.com/v3.1/all';
 // const regionUrl = "https://restcountries.com/v3.1/region/";
 
 // Theme Styling
 
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: theme.palette.primary.main,
   // "&:hover": {
@@ -30,38 +30,38 @@ const Search = styled("div")(({ theme }) => ({
   boxShadow: theme.shadows[2],
   marginRight: theme.spacing(2),
   marginLeft: 0,
-  width: "100%",
-  height: "50px",
-  [theme.breakpoints.up("sm")]: {
+  width: '100%',
+  height: '50px',
+  [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(0),
-    width: "40%",
+    width: '40%',
   },
 }));
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
+const SearchIconWrapper = styled('div')(({ theme }) => ({
   padding: theme.spacing(0, 2, 0, 3),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
   color: theme.palette.text.primary,
-  alignItems: "center",
-  justifyContent: "center",
+  alignItems: 'center',
+  justifyContent: 'center',
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: theme.palette.text.primary,
-  "& .MuiInputBase-input": {
+  '& .MuiInputBase-input': {
     padding: theme.spacing(2, 1, 1, 0),
     // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(6)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    height: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-    [theme.breakpoints.up("md")]: {
-      width: "50ch",
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    height: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    [theme.breakpoints.up('md')]: {
+      width: '50ch',
     },
   },
 }));
@@ -71,8 +71,8 @@ const Home = () => {
 
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [region, setRegion] = useState("");
-  const [search, setSearch] = useState("");
+  const [region, setRegion] = useState('');
+  const [search, setSearch] = useState('');
 
   // Methods & functions
   const fetchCountriesData = async () => {
@@ -102,10 +102,10 @@ const Home = () => {
         setLoading(false);
       }
     } catch (error) {
-      alert("error while fetching region");
+      alert('error while fetching region');
     }
 
-    if (regionName === "all") {
+    if (regionName === 'all') {
       setLoading(true);
       try {
         const res = await fetch(allUrl);
@@ -115,7 +115,7 @@ const Home = () => {
           setLoading(false);
         }
       } catch (error) {
-        alert("error while fetching all region");
+        alert('error while fetching all region');
       }
     }
   };
@@ -158,14 +158,15 @@ const Home = () => {
   return (
     <Box
       sx={{
-        backgroundColor: "primary.light",
-        height: "100vh",
+        backgroundColor: 'primary.light',
+        height: '100vh',
+        mt: '72px',
       }}
     >
       <Container
-        maxWidth="xl"
+        maxWidth='xl'
         sx={{
-          backgroundColor: "primary.light",
+          backgroundColor: 'primary.light',
         }}
       >
         <Stack
@@ -174,20 +175,20 @@ const Home = () => {
             mb: 6,
           }}
           component={motion.div}
-          direction={{ xxs: "column", sm: "row" }}
+          direction={{ xxs: 'column', sm: 'row' }}
           spacing={{ xxs: 2 }}
-          justifyContent="space-between"
+          justifyContent='space-between'
           initial={{ y: -250 }}
           animate={{ y: 0 }}
-          transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+          transition={{ delay: 0.2, type: 'spring', stiffness: 200 }}
         >
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search for a country…"
-              inputProps={{ "aria-label": "search" }}
+              placeholder='Search for a country…'
+              inputProps={{ 'aria-label': 'search' }}
               value={search}
               onChange={handleSearch}
             />
@@ -195,38 +196,38 @@ const Home = () => {
 
           <FormControl
             sx={{
-              width: "200px",
-              height: "50px",
-              border: "none",
-              backgroundColor: "primary.main",
+              width: '200px',
+              height: '50px',
+              border: 'none',
+              backgroundColor: 'primary.main',
             }}
           >
-            <InputLabel id="demo-simple-select-label">
+            <InputLabel id='demo-simple-select-label'>
               Filter by Region
             </InputLabel>
 
             <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
+              labelId='demo-simple-select-label'
+              id='demo-simple-select'
               value={region}
-              label="Filter by Region"
+              label='Filter by Region'
               onChange={handleChange}
-              sx={{ backgroundColor: "primary.main" }}
+              sx={{ backgroundColor: 'primary.main' }}
             >
-              <MenuItem value={"all"}>All</MenuItem>
-              <MenuItem value={"africa"}>Africa</MenuItem>
-              <MenuItem value={"america"}>America</MenuItem>
-              <MenuItem value={"asia"}>Asia</MenuItem>
-              <MenuItem value={"europe"}>Europe</MenuItem>
-              <MenuItem value={"oceania"}>Oceania</MenuItem>
+              <MenuItem value={'all'}>All</MenuItem>
+              <MenuItem value={'africa'}>Africa</MenuItem>
+              <MenuItem value={'america'}>America</MenuItem>
+              <MenuItem value={'asia'}>Asia</MenuItem>
+              <MenuItem value={'europe'}>Europe</MenuItem>
+              <MenuItem value={'oceania'}>Oceania</MenuItem>
             </Select>
           </FormControl>
         </Stack>
         <motion.div
           // component={motion.div}
-          initial={{ x: "100vw" }}
+          initial={{ x: '100vw' }}
           animate={{ x: 0 }}
-          transition={{ type: "Spring", delay: 0.5, duration: 1 }}
+          transition={{ type: 'Spring', delay: 0.5, duration: 1 }}
         >
           {loading ? <Loading /> : <Countries countries={countries} />}
         </motion.div>
