@@ -119,6 +119,7 @@ const Details = () => {
         sx={{
           backgroundColor: 'primary.light',
           height: '100%',
+          mt: '72px',
           // pb: "2",
           // overflow: "hidden",
         }}
