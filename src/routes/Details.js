@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
-import { motion } from "framer-motion";
-import { Box, Typography, Button, Stack, Container } from "@mui/material";
-import Grid from "@mui/material/Unstable_Grid2";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import React, { useState, useEffect } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Box, Typography, Button, Stack, Container } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 const Details = () => {
   const [singleCountry, setSingleCountry] = useState({});
@@ -47,8 +47,8 @@ const Details = () => {
             subregion,
             capital,
             tld: tld ? tld[0] : [],
-            currencies: currencies ? key : "",
-            languages: languages ? Object.values(languages).join(", ") : [],
+            currencies: currencies ? key : '',
+            languages: languages ? Object.values(languages).join(', ') : [],
             borders,
           };
 
@@ -91,8 +91,8 @@ const Details = () => {
             subregion,
             capital,
             tld: tld ? tld[0] : [],
-            currencies: currencies ? key : "",
-            languages: languages ? Object.values(languages).join(", ") : [],
+            currencies: currencies ? key : '',
+            languages: languages ? Object.values(languages).join(', ') : [],
             borders,
           };
 
@@ -117,23 +117,23 @@ const Details = () => {
     <>
       <Box
         sx={{
-          backgroundColor: "primary.light",
-          height: "100%",
+          backgroundColor: 'primary.light',
+          height: '100%',
           // pb: "2",
           // overflow: "hidden",
         }}
       >
         <Container
           component={motion.div}
-          initial={{ x: "100vw" }}
+          initial={{ x: '100vw' }}
           animate={{ x: 0 }}
           transition={{ delay: 0.2, stiffness: 200 }}
-          maxWidth="xl"
-          sx={{ backgroundColor: "primary.light", height: "100%", pd: "5rem" }}
+          maxWidth='xl'
+          sx={{ backgroundColor: 'primary.light', height: '100%', pd: '5rem' }}
         >
-          <Link to="/">
+          <Link to='/'>
             <Button
-              variant="contained"
+              variant='contained'
               startIcon={<KeyboardBackspaceIcon />}
               sx={{ mt: 4, mb: 3.5, pr: 3.5, pl: 3.5, pt: 1.3, pb: 1.3 }}
             >
@@ -154,14 +154,14 @@ const Details = () => {
             column={12}
             disableEqualOverflow
             height={{ lg: 450 }}
-            alignItems="center"
+            alignItems='center'
             sx={{
-              color: "text.primary",
+              color: 'text.primary',
               pt: 5,
               pb: 5,
               // mb: 10,
               // height: 450,
-              backgroundColor: "primary.light",
+              backgroundColor: 'primary.light',
             }}
           >
             <Grid
@@ -170,12 +170,15 @@ const Details = () => {
               md={5.5}
               lg={5}
               xl={5}
-              display="flex"
+              display='flex'
               sx={{ mb: 3 }}
             >
-              <Box sx={{ height: 355 }}>
-                <img src={singleCountry.flag} alt="country's flag" />
-              </Box>
+              <Box
+                component='img'
+                sx={{ height: 355, objectFit: 'cover' }}
+                alt={`${singleCountry.name}'s flag`}
+                src={singleCountry.flag}
+              />
             </Grid>
             <Grid
               xxs={12}
@@ -183,66 +186,66 @@ const Details = () => {
               md={5.5}
               lg={6}
               xl={6}
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              sx={{ backgroundColor: "primary.light" }}
+              display='flex'
+              justifyContent='center'
+              alignItems='center'
+              sx={{ backgroundColor: 'primary.light' }}
             >
               <Stack
-                direction="column"
-                justifyContent="space-between"
+                direction='column'
+                justifyContent='space-between'
                 sx={{
-                  height: "70%",
-                  width: "100%",
-                  backgroundColor: "primary.light",
+                  height: '70%',
+                  width: '100%',
+                  backgroundColor: 'primary.light',
                 }}
               >
                 <Box>
-                  <Typography variant="h4" sx={{ mb: 2 }}>
+                  <Typography variant='h4' sx={{ mb: 2 }}>
                     {singleCountry.name}
                   </Typography>
                 </Box>
                 <Stack
-                  direction={{ xxs: "column", sm: "row" }}
-                  justifyContent="space-between"
+                  direction={{ xxs: 'column', sm: 'row' }}
+                  justifyContent='space-between'
                   spacing={{ xxs: 2 }}
                 >
-                  <Stack direction="column">
-                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                  <Stack direction='column'>
+                    <Typography variant='subtitle1' sx={{ mb: 1 }}>
                       Native Name: <span>{singleCountry.nativeName}</span>
                     </Typography>
 
-                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    <Typography variant='subtitle1' sx={{ mb: 1 }}>
                       Population: <span>{singleCountry.population}</span>
                     </Typography>
-                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    <Typography variant='subtitle1' sx={{ mb: 1 }}>
                       Region: <span>{singleCountry.region}</span>
                     </Typography>
-                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    <Typography variant='subtitle1' sx={{ mb: 1 }}>
                       Sub Region: <span>{singleCountry.subregion}</span>
                     </Typography>
-                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    <Typography variant='subtitle1' sx={{ mb: 1 }}>
                       Capital: <span>{singleCountry.capital}</span>
                     </Typography>
                   </Stack>
 
-                  <Stack direction="column" alignContent="center">
-                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                  <Stack direction='column' alignContent='center'>
+                    <Typography variant='subtitle1' sx={{ mb: 1 }}>
                       Top Level Domain: <span>{singleCountry.tld}</span>
                     </Typography>
 
-                    <Typography variant="subtitle1" sx={{ mb: 1 }}>
+                    <Typography variant='subtitle1' sx={{ mb: 1 }}>
                       Currencies: <span>{singleCountry.currencies}</span>
                     </Typography>
 
                     <Stack
                       spacing={1}
                       sx={{ mb: 1 }}
-                      direction="row"
-                      justifyContent="flex-start"
+                      direction='row'
+                      justifyContent='flex-start'
                     >
-                      <Typography variant="subtitle1">Languages:</Typography>
-                      <Typography variant="subtitle1">
+                      <Typography variant='subtitle1'>Languages:</Typography>
+                      <Typography variant='subtitle1'>
                         <span>{singleCountry.languages}</span>
                       </Typography>
                     </Stack>
@@ -250,29 +253,29 @@ const Details = () => {
                 </Stack>
                 <Stack
                   spacing={2}
-                  direction={{ xxs: "column", lg: "row" }}
-                  justifyContent="flex-start"
-                  alignItems={{ xxs: "flex-start", lg: "center" }}
+                  direction={{ xxs: 'column', lg: 'row' }}
+                  justifyContent='flex-start'
+                  alignItems={{ xxs: 'flex-start', lg: 'center' }}
                   sx={{ mt: 1 }}
                 >
                   <Typography
-                    variant="subtitle1"
+                    variant='subtitle1'
                     // sx={{ mb: 1 }}
-                    alignItems="center"
+                    alignItems='center'
                   >
                     Border Countries:
                   </Typography>
                   <Stack
-                    direction="row"
-                    justifyContent="flex-start"
-                    flexWrap="wrap"
+                    direction='row'
+                    justifyContent='flex-start'
+                    flexWrap='wrap'
                   >
                     {borderCountries.map((country, index) => {
                       return (
                         <Link to={`/Details/${country}`}>
                           <Button
                             key={index}
-                            variant="contained"
+                            variant='contained'
                             sx={{ mr: 2, mb: 1 }}
                           >
                             {country}
