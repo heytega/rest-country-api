@@ -13,8 +13,6 @@ const darkmode = createTheme({
     primary: {
       main: 'hsl(209, 23%, 22%)', //element
       light: 'hsl(207, 26%, 17%)', //background
-      // dark: "hsl(200, 15%, 8%)", //text
-      // contrastText: "#111517",
     },
 
     text: {
@@ -72,15 +70,12 @@ const lightmode = createTheme({
     common: {
       black: 'hsl(200, 15%, 8%)',
       white: '#fff',
-      // DarkBlueT: "#111517",
+    
     },
 
     primary: {
       main: '#fff', //element
       light: 'hsl(0, 0%, 98%)', //background
-      // dark: "hsl(200, 15%, 8%)", //text
-      // input: "hsl(0, 0%, 52%)",
-      // contrastText: "hsl(0, 0%, 52%)",
     },
 
     text: {
@@ -110,8 +105,7 @@ const lightmode = createTheme({
       styleOverrides: {
         // Name of the slot
         root: {
-          // Some CSS
-          // border: "none",
+          // CSS
           boxShadow: 'none',
         },
       },
@@ -121,8 +115,7 @@ const lightmode = createTheme({
       styleOverrides: {
         // Name of the slot
         root: {
-          // Some CSS
-          // border: "none",
+          // CSS
           backgroundColor: 'hsl(0, 0%, 98%)',
         },
       },
@@ -133,7 +126,6 @@ const lightmode = createTheme({
     fontFamily: 'Nunito Sans',
     fontWeightMedium: 600,
     fontWeightBold: 800,
-    // color: "#111517",
     h4: {
       fontFamily: 'Nunito Sans',
       fontWeight: 800,
