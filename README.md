@@ -11,7 +11,7 @@ This project design was inspired by the Frontend Mentor Rest Country api challen
 
 ### Overview
 
-The Rest Country API Project is a application built with the sole aim of availing to users all basic and complex information (including statistics of all countries in the world) put into one application for easy accessibility for the purpose of Verification and Learning. Enjoy :) 
+The Rest Country API Project is an application built with the sole aim of availing to users all basic and complex information (including statistics) of all countries in the world, put into one application for easy accessibility for the purpose of Verification and Learning. Enjoy :) 
 
 ### Links
 
