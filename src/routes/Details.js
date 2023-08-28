@@ -126,8 +126,7 @@ const Details = ({ loading, setLoading }) => {
           backgroundColor: 'primary.light',
           height: '100%',
           mt: '72px',
-          // pb: "2",
-          // overflow: "hidden",
+    
         }}
       >
         <Container
@@ -166,8 +165,6 @@ const Details = ({ loading, setLoading }) => {
               color: 'text.primary',
               pt: 5,
               pb: 5,
-              // mb: 10,
-              // height: 450,
               backgroundColor: 'primary.light',
             }}
           >
